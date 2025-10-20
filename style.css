@@ -1,0 +1,96 @@
+:root {
+    --lightblue: #79d7fd;
+    --blue: #00bbfa;
+    --text:#001736;
+    --navy:#00183e;
+    --yellow:#ffc54a;
+}
+
+/* Body */
+
+
+body {
+    color: var(--text);
+    font-family: 'Roboto', sans-serif;
+}
+
+
+h1, h2, h3, h5, .navbar-brand, .nav-item, .index-title, .project_title, .about-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text);
+}
+
+h4 {
+    color: var(--text);
+}
+
+.border-primary {
+    border-color: var(--navy) !important;
+}
+
+/* NavBar */
+
+.navbar{
+    background-color: var(--navy) !important;
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: white !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--yellow) !important;
+}
+
+.navbar-brand {
+    padding-left: 15px !important;
+}
+
+.navbar-nav {
+    padding-right: 15px !important;
+}
+
+.navbar-collapse {
+    padding: 0 15px;
+}
+
+/* Buttons */
+
+.btn-primary, .btn-secondary{
+    background-color: var(--yellow) !important;
+    border-color: var(--yellow) !important;
+    color: white !important;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.btn-primary:hover, .btn-secondary:hover{
+    background-color: var(--lightblue) !important;
+    border-color: var(--lightblue) !important;
+}
+
+
+/*Footer*/
+
+footer {
+    background-color: var(--navy) !important;
+    color: white !important;
+}
+
+footer h2 {
+    color: white !important;
+}
+
+footer .d-flex a {
+    color: var(--yellow) !important;
+}
+
+footer .d-flex a:hover {
+    color: var(--lightblue) !important;
+}
+
+
