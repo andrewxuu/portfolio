@@ -1096,3 +1096,16 @@ a { color: var(--blue); }
   .p3-stat-num { font-size: 30px; }
   .site-nav .links a { font-size: 14px; padding: 3px 6px; }
 }
+
+
+/* Ensure carousel images maintain aspect ratio */
+.carousel-inner img {
+  object-fit: contain;
+  background-color: var(--surface);
+}
+
+/* Fix dark mode controls visibility */
+:root.dark .carousel-control-prev-icon,
+:root.dark .carousel-control-next-icon {
+  filter: invert(1);
+}

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Andrew Xu">
+  <meta name="description" content="Case study: Pandemonium, a 2-player turn-based strategic card game focused on resource management and class-based combat.">
+  <title>Andrew Xu | Pandemonium</title>
+
+  <script>
+    (function () {
+      try { if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark'); } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">ANDREW XU</a>
+      <div class="links">
+        <a href="index.html">HOME</a>
+        <a class="active" aria-current="page" href="projects.html">PROJECTS</a>
+        <a href="aboutme.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="margin-left:10px;">
+          <span class="fa-solid fa-moon" id="themeIcon" aria-hidden="true"></span>
+          <span id="themeLabel">Dark</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <article class="article">
+    <a class="back-link" href="projects.html">
+      <span class="fa-solid fa-arrow-left" aria-hidden="true"></span> Back to Projects
+    </a>
+
+    <header class="article-head">
+      <span class="page-kicker">Solo Project</span>
+      <h1 class="article-title">PANDEMONIUM</h1>
+
+      <div class="article-meta">
+        <div class="meta-item">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">Solo Developer</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Format</span>
+          <span class="meta-value">2-Player Strategy Card Game</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Context</span>
+          <span class="meta-value">DMA 090 (Game Design I)</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Duration</span>
+          <span class="meta-value">Fall 2022</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="article-body">
+
+      <img src="images/panda cover.png" alt="Pandemonium Title Cover" class="article-hero" style="background-color:#ffffff; object-fit:contain; padding:20px;">
+
+      <div class="callout">
+        <span class="callout-label">Executive Summary</span>
+        <p>Pandemonium is a two-player, turn-based strategic card game centered around building an army of pandas. Designed and executed entirely as a solo development project, the primary win condition is straightforward yet highly competitive: the first player to successfully place five Pandas on their field wins the game.</p>
+      </div>
+
+      <h2>Core Gameplay Mechanics</h2>
+      <p>
+        The gameplay loop of Pandemonium relies on careful resource management, structured turn phases, and a class-based combat framework. At the start of the game, both players are dealt five cards. To offset the inherent first-turn advantage, the player going second is awarded a special "Red Panda" card on their field for balance.
+      </p>
+
+      <h3>Turn Structure</h3>
+      <p>Each player's turn is divided into four strictly ordered phases:</p>
+      <ul>
+        <li><strong>Stage 1 - Draw Phase:</strong> The active player draws one card at the beginning of their turn.</li>
+        <li><strong>Stage 2 - Action Phase:</strong> The player is allowed to perform two specific actions once per turn: play a Panda card from their hand, and play a Spell card from their hand.</li>
+        <li><strong>Stage 3 - Attack Phase:</strong> Players are restricted to a single attack per turn. Additionally, Pandas suffer from "summoning sickness" and are not able to attack on the same turn they are played.</li>
+        <li><strong>Stage 4 - End Phase:</strong> The player must discard cards if necessary to ensure their hand does not exceed the strict seven-card limit.</li>
+      </ul>
+
+      <h2>The Combat System</h2>
+      <p>
+        Combat is resolved through a "rock-paper-scissors" style class system. Each Panda class is identifiable by blue corners on the cards:
+      </p>
+      <ul>
+        <li><strong>Wizards (Rock):</strong> Strong against the Assassin and Farmer classes. They are weak to the Knight class and are destroyed when attacked by them.</li>
+        <li><strong>Knights (Paper):</strong> Strong against the Wizard and Farmer classes. They are weak to the Assassin class and are destroyed when attacked by them.</li>
+        <li><strong>Assassins (Scissors):</strong> Strong against the Knight and Farmer classes. They are weak to the Wizard class and are destroyed when attacked by them.</li>
+        <li><strong>Farmers:</strong> The weakest class, easily destroyed by Knights, Assassins, and Wizards. However, summoning a Farmer allows the player to draw an additional card, providing highly valuable deck utility.</li>
+        <li><strong>Red Panda:</strong> Awarded to the player going second, this unit acts as a taunt. Enemy Pandas are forced to attack the Red Panda before they can target other friendly Pandas. It is weak to every class, cannot attack, and cannot be targeted by spells.</li>
+      </ul>
+
+      <h2>Magic and Utility Systems</h2>
+      <p>To introduce variability and interrupt the opponent's strategy, the game features Spells (identified by yellow corners) and Instants (identified by red corners).</p>
+
+      <div class="split-cols">
+        <div class="col-box good">
+          <h3>Spell Cards (Yellow)</h3>
+          <p class="muted" style="font-size: 13px; margin-bottom: 12px;">Played during the Action Phase to manipulate the board and create card advantage.</p>
+          <ul>
+            <li><strong>Captured:</strong> Steal one of the opponent's Pandas. Casting this immediately ends the player's turn and prevents them from attacking.</li>
+            <li><strong>Scarecrow:</strong> Cast on a friendly Panda to grant protection from destruction until the beginning of your next turn. If the Panda would be destroyed, the Scarecrow is destroyed instead.</li>
+            <li><strong>Good Deal:</strong> Discard one card from your hand to draw two cards from the deck.</li>
+            <li><strong>Thievery:</strong> Steal a card from the opponent's hand. As compensation, the opponent is permitted to draw one card from the deck.</li>
+          </ul>
+        </div>
+        <div class="col-box risk">
+          <h3>Instant Cards (Red)</h3>
+          <p class="muted" style="font-size: 13px; margin-bottom: 12px;">Played reactively during any stage of the game, including the opponent's turn.</p>
+          <ul>
+            <li><strong>Pendant:</strong> Cancels the effects of an opponent's spell card. It can also be used sequentially to cancel other Pendant cards.</li>
+            <li><strong>Confusion:</strong> Redirects an enemy Panda's attack to the Panda on the original target's right. If no Panda is on the right, it redirects to the leftmost Panda. If it is the only Panda on the field, it grants temporary invulnerability for the turn.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Prototyping and Iteration</h2>
+      <p>
+        The development cycle moved rapidly from mechanical testing to aesthetic finalization to ensure the core loop felt satisfying before committing to art assets.
+      </p>
+      <ul>
+        <li><strong>Initial Prototype:</strong> To test game balance, class interactions, and the turn economy, the earliest playable version was constructed using a standard deck of poker cards modified with a red marker. This allowed for immediate, low-cost playtesting without committing to final visual assets.</li>
+        <li><strong>Final Product:</strong> Following the mechanical refinement phase, the final version of Pandemonium was assembled. This version featured original, themed artwork printed on paper and housed in protective card sleeves, establishing a clear and polished visual identity for the game's various classes and abilities.</li>
+      </ul>
+
+      <figure>
+        <img src="images/panda card.png" alt="Pandemonium Cards">
+        </div>
+        <figcaption>The final version of Pandemonium featured original themed artwork housed in protective card sleeves.</figcaption>
+      </figure>
+
+    </div>
+
+    <a class="back-link" href="projects.html" style="margin:40px 0 0;">
+      <span class="fa-solid fa-arrow-left" aria-hidden="true"></span> Back to Projects
+    </a>
+  </article>
+
+  <footer class="site-foot">
+    <h2>Connect</h2>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/andrew-l-xuu/" target="_blank" aria-label="LinkedIn">
+        <span class="fa-brands fa-linkedin-in" aria-hidden="true"></span>
+      </a>
+      <a href="mailto:andrew.l.xuu@gmail.com" aria-label="Email Andrew Xu">
+        <span class="fa-solid fa-envelope" aria-hidden="true"></span>
+      </a>
+      <a href="https://github.com/andrewxuu" target="_blank" aria-label="GitHub">
+        <span class="fa-brands fa-github" aria-hidden="true"></span>
+      </a>
+      <a href="https://discord.com/users/377968184894160897" target="_blank" aria-label="Discord">
+        <span class="fa-brands fa-discord" aria-hidden="true"></span>
+      </a>
+    </div>
+    <p class="copyright">&copy; 2026 Andrew Xu. Built with HTML, CSS, and Bootstrap.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('themeToggle');
+      var icon = document.getElementById('themeIcon');
+      var label = document.getElementById('themeLabel');
+      function sync() {
+        var dark = root.classList.contains('dark');
+        label.textContent = dark ? 'Light' : 'Dark';
+        icon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      }
+      sync();
+      btn.addEventListener('click', function () {
+        root.classList.toggle('dark');
+        try { localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light'); } catch (e) {}
+        sync();
+      });
+    })();
+  </script>
+</body>
+</html>
