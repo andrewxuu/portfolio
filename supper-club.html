@@ -9,320 +9,235 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:      #EDE3D9;
-      --bg2:     #E4D8CA;
-      --ink:     #1A1612;
-      --ink-dim: rgba(26,22,18,0.5);
-      --ink-faint: rgba(26,22,18,0.08);
-      --border:  rgba(26,22,18,0.14);
-      --accent:  #3B2F24;
+      --cream:   #EDE8E1;
+      --cream-2: #E0D9CF;
+      --sage:    #A8BDB4;
+      --ink:     #25211D;
+      --ink-dim: rgba(37,33,29,0.48);
+      --border:  rgba(37,33,29,0.12);
+      --bg:      #EDE8E1;
     }
 
     html, body { min-height: 100%; }
     body {
       background: var(--bg);
       color: var(--ink);
-      font-family: 'Inter', sans-serif;
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ---- Nav ---- */
+    /* Nav */
     .rc-nav {
       position: sticky; top: 0; z-index: 50;
       display: flex; align-items: center;
-      padding: 16px 48px;
-      background: rgba(237,227,217,0.94);
-      backdrop-filter: blur(10px);
+      padding: 18px 52px;
+      background: rgba(237,232,225,0.95);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-    .rc-nav .brand {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px; font-weight: 400;
-      letter-spacing: 5px; text-transform: uppercase;
-      color: var(--ink); text-decoration: none;
-    }
-    .rc-nav .links { display: flex; gap: 28px; margin-left: auto; align-items: center; }
-    .rc-nav .links a {
-      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--ink-dim); text-decoration: none; transition: color 0.2s ease;
-    }
+    .rc-nav .brand { font-size: 11px; font-weight: 400; letter-spacing: 5px; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+    .rc-nav .links { display: flex; gap: 32px; margin-left: auto; align-items: center; }
+    .rc-nav .links a { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
     .rc-nav .links a:hover, .rc-nav .links a.active { color: var(--ink); }
 
-    /* ---- Back ---- */
+    /* Back */
     .rc-back {
       display: inline-flex; align-items: center; gap: 9px;
       font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
       color: var(--ink-dim); text-decoration: none;
-      padding: 36px 64px 0;
-      transition: color 0.2s ease;
+      padding: 36px 64px 0; transition: color 0.2s;
     }
     .rc-back:hover { color: var(--ink); }
 
-    /* ---- Hero ---- */
-    .rc-hero {
-      display: flex; flex-direction: column;
-      align-items: center;
-      padding: 60px 24px 56px;
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-    }
-    .rc-logo {
-      max-width: 520px; width: 90%;
-      margin-bottom: 32px;
-      opacity: 0.88;
-      mix-blend-mode: multiply;
-    }
-    .rc-rule {
-      width: 48px; height: 1px;
-      background: var(--ink-dim);
-      margin: 0 auto 24px;
-    }
-    .rc-hero-sub {
-      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-      color: var(--ink-dim);
-    }
+    /* Hero */
+    .rc-hero { display: flex; flex-direction: column; align-items: center; padding: 64px 24px 60px; border-bottom: 1px solid var(--border); text-align: center; }
+    .rc-logo-text { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(42px, 7vw, 80px); font-weight: 300; font-style: italic; letter-spacing: 2px; color: var(--ink); margin-bottom: 32px; line-height: 1; }
+    .rc-rule { width: 40px; height: 1px; background: var(--ink-dim); margin: 0 auto 22px; }
+    .rc-hero-sub { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--ink-dim); }
     .rc-hero-sub span { margin: 0 12px; }
 
-    /* ---- Intro ---- */
-    .rc-intro {
-      max-width: 600px; margin: 0 auto;
-      padding: 64px 24px;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-    }
-    .rc-intro p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(20px, 2.8vw, 26px);
-      font-weight: 300; font-style: italic;
-      line-height: 1.75;
-      color: var(--ink-dim);
-    }
+    /* Intro */
+    .rc-intro { max-width: 620px; margin: 0 auto; padding: 72px 24px; text-align: center; border-bottom: 1px solid var(--border); }
+    .rc-intro p { font-size: clamp(22px, 2.8vw, 28px); font-weight: 300; font-style: italic; line-height: 1.8; color: var(--ink-dim); }
 
-    /* ---- Stats ---- */
-    .rc-stats {
-      display: flex; justify-content: center;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-    /* Garlic Watermark */
-    .rc-stats-bg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 140px;
-      opacity: 0.12; 
-      mix-blend-mode: multiply;
-      pointer-events: none;
-    }
-    .rc-stat {
-      flex: 1; max-width: 220px;
-      padding: 40px 24px; text-align: center;
-      border-right: 1px solid var(--border);
-      position: relative; 
-      z-index: 2;
-    }
+    /* Stats */
+    .rc-stats { display: flex; justify-content: center; border-bottom: 1px solid var(--border); }
+    .rc-stat { flex: 1; max-width: 220px; padding: 44px 24px; text-align: center; border-right: 1px solid var(--border); }
     .rc-stat:last-child { border-right: none; }
-    .rc-stat .num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 46px; font-weight: 300;
-      color: var(--ink); display: block;
-      line-height: 1; margin-bottom: 8px;
-    }
-    .rc-stat .lbl {
-      font-size: 9px; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--ink-dim);
-    }
+    .rc-stat .num { font-size: 52px; font-weight: 300; color: var(--ink); display: block; line-height: 1; margin-bottom: 10px; }
+    .rc-stat .lbl { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-dim); }
 
-    /* ---- Events ---- */
-    .rc-events { max-width: 960px; margin: 0 auto; padding: 0 48px 80px; }
-    .rc-event { padding: 80px 0; border-bottom: 1px solid var(--border); }
+    /* Events */
+    .rc-events { max-width: 980px; margin: 0 auto; padding: 0 52px 90px; }
+    .rc-event { padding: 88px 0; border-bottom: 1px solid var(--border); }
     .rc-event:last-child { border-bottom: none; }
-
-    .rc-event-head { text-align: center; margin-bottom: 52px; }
-    .rc-event-num {
-      font-size: 9px; letter-spacing: 5px;
-      text-transform: uppercase; color: var(--ink-dim);
-      display: block; margin-bottom: 14px;
-    }
-    .rc-event-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 6vw, 62px);
-      font-weight: 300; font-style: italic;
-      letter-spacing: 2px; color: var(--ink);
-      margin-bottom: 16px;
-    }
-    .rc-event-meta {
-      font-size: 10px; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--ink-dim);
-    }
+    .rc-event-head { text-align: center; margin-bottom: 56px; }
+    .rc-event-num { font-size: 10px; letter-spacing: 6px; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 16px; }
+    .rc-event-season { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-dim); display: block; margin-bottom: 8px; }
+    .rc-event-title { font-size: clamp(38px, 6vw, 66px); font-weight: 300; font-style: italic; letter-spacing: 1px; color: var(--ink); margin-bottom: 18px; line-height: 1.1; }
+    .rc-event-meta { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-dim); }
     .rc-event-meta span { margin: 0 10px; }
+    .rc-event-body { display: grid; grid-template-columns: 1fr 1fr; gap: 68px; align-items: start; }
+    .rc-event-desc { font-size: 17px; line-height: 1.95; color: var(--ink-dim); margin-bottom: 32px; }
 
-    .rc-event-body {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 64px; align-items: start;
-    }
-    .rc-event-desc {
-      font-size: 15px; line-height: 1.9;
-      color: var(--ink-dim); margin-bottom: 28px;
-    }
-
-    /* ---- Menu ---- */
-    .rc-menu-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .rc-menu-content {
-      flex-grow: 1;
-    }
-    .rc-menu-illustration {
-      width: 110px;
-      opacity: 0.85;
-      mix-blend-mode: multiply;
-      display: none; 
-    }
-    .rc-menu-label {
-      font-size: 9px; letter-spacing: 4px;
-      text-transform: uppercase; color: var(--ink-dim);
-      display: block; margin-bottom: 14px;
-    }
+    /* Menu */
+    .rc-menu-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 14px; }
     .rc-menu-list { list-style: none; }
-    .rc-menu-list li {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 19px; font-weight: 300; font-style: italic;
-      color: var(--ink); padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-      letter-spacing: 0.5px;
-    }
+    .rc-menu-list li { font-size: 20px; font-weight: 300; font-style: italic; color: var(--ink); padding: 11px 0; border-bottom: 1px solid var(--border); }
     .rc-menu-list li:first-child { border-top: 1px solid var(--border); }
 
-    /* ---- Photos ---- */
-    .rc-photos { display: grid; gap: 8px; }
-    .rc-photos.grid-2 { grid-template-columns: 1fr 1fr; }
-    .rc-photos.grid-3 { grid-template-columns: 1fr 1fr 1fr; }
-    .rc-photos img {
-      width: 100%; display: block;
-      border-radius: 1px;
-      aspect-ratio: 4/3; object-fit: cover;
-      transition: opacity 0.3s ease;
+    /* Per-event Carousel */
+    .event-carousel {
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+      background: var(--cream-2);
+      /* Use average portrait ratio 3:4 */
+      aspect-ratio: 3 / 4;
     }
-    .rc-photos img:hover { opacity: 0.88; }
-    .rc-photos img.hero-img { grid-column: 1/-1; aspect-ratio: 16/7; }
-
-    /* Placeholder */
-    .rc-ph {
-      background: var(--bg2);
-      border: 1px solid var(--border);
+    .ecar-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.55s cubic-bezier(0.77,0,0.18,1);
+    }
+    .ecar-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .ecar-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+    }
+    .ecar-slide .rc-ph {
+      width: 100%; height: 100%;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      gap: 8px; text-align: center; padding: 40px 16px;
+      gap: 8px; background: var(--cream-2);
+      border: 1px solid var(--border);
     }
-    .rc-ph.ph-wide { grid-column: 1/-1; aspect-ratio: 16/7; }
-    .rc-ph.ph-sq { aspect-ratio: 4/3; }
-    .rc-ph i { font-size: 18px; color: var(--ink-dim); opacity: 0.5; }
+    .rc-ph i { font-size: 18px; color: var(--ink-dim); opacity: 0.4; }
     .rc-ph span { font-size: 10px; letter-spacing: 1px; color: var(--ink-dim); }
+    .ecar-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(237,232,225,0.85); border: 1px solid var(--border);
+      color: var(--ink); width: 36px; height: 36px; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 11px; transition: background 0.2s; z-index: 5;
+    }
+    .ecar-btn:hover { background: rgba(237,232,225,1); }
+    .ecar-btn.prev { left: 12px; }
+    .ecar-btn.next { right: 12px; }
+    .ecar-dots {
+      position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px; z-index: 5;
+    }
+    .ecar-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(255,255,255,0.5); cursor: pointer; border: none;
+      transition: background 0.2s;
+    }
+    .ecar-dot.active { background: #fff; }
 
-    /* ---- Photo Spread Marquee ---- */
-    .rc-photo-spread {
-      padding: 60px 0 80px;
-      overflow: hidden;
-      border-top: 1px solid var(--border);
-    }
-    .rc-spread-header {
-      text-align: center; margin-bottom: 40px;
-    }
-    .rc-spread-title {
-      font-size: 10px; letter-spacing: 4px;
-      text-transform: uppercase; color: var(--ink-dim);
-    }
-    .rc-marquee-container {
-      position: relative;
-      width: 100%;
-      display: flex;
-      overflow: hidden;
-    }
-    /* Gradient fades for smooth edges */
+    /* Marquee */
+    .rc-photo-spread { padding: 72px 0 90px; overflow: hidden; border-top: 1px solid var(--border); }
+    .rc-spread-header { text-align: center; margin-bottom: 44px; }
+    .rc-spread-title { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--ink-dim); }
+    .rc-marquee-container { position: relative; width: 100%; display: flex; overflow: hidden; }
     .rc-marquee-container::before,
-    .rc-marquee-container::after {
-      content: "";
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 12vw;
-      z-index: 10;
-      pointer-events: none;
-    }
-    .rc-marquee-container::before {
-      left: 0;
-      background: linear-gradient(to right, var(--bg), transparent);
-    }
-    .rc-marquee-container::after {
-      right: 0;
-      background: linear-gradient(to left, var(--bg), transparent);
-    }
-    .rc-marquee-track {
-      display: flex;
-      gap: 16px;
-      width: max-content;
-      /* 35s speed, linear curve, infinite loop */
-      animation: marquee-scroll 35s linear infinite;
-    }
-    .rc-marquee-track:hover {
-      animation-play-state: paused;
-    }
-    .rc-marquee-item {
-      width: 280px;
-      height: 200px;
-      flex-shrink: 0;
-      border-radius: 1px;
-      object-fit: cover;
-    }
-    .rc-ph.rc-marquee-item {
-      aspect-ratio: auto; /* Overrides default ph-sq */
-    }
-
-    /* Seamless scroll math: shift by exactly half the track width + half the gap */
-    @keyframes marquee-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(calc(-50% - 8px)); }
-    }
+    .rc-marquee-container::after { content: ""; position: absolute; top: 0; bottom: 0; width: 12vw; z-index: 10; pointer-events: none; }
+    .rc-marquee-container::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+    .rc-marquee-container::after  { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+    .rc-marquee-track { display: flex; gap: 16px; width: max-content; animation: marquee-scroll 40s linear infinite; }
+    .rc-marquee-track:hover { animation-play-state: paused; }
+    .rc-marquee-item { width: 210px; height: 280px; flex-shrink: 0; object-fit: cover; cursor: zoom-in; border-radius: 1px; }
+    @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 8px)); } }
 
     /* Footer */
-    .rc-footer {
-      border-top: 1px solid var(--border);
-      text-align: center; padding: 56px 24px 40px;
-    }
-    .rc-footer .floral { width: 75px; opacity: 0.6; mix-blend-mode: multiply; margin-bottom: 24px; }
-    .rc-footer .social { display: flex; justify-content: center; gap: 28px; margin-bottom: 20px; }
-    .rc-footer .social a { font-size: 17px; color: var(--ink-dim); text-decoration: none; transition: color 0.2s ease; }
+    .rc-footer { border-top: 1px solid var(--border); text-align: center; padding: 64px 24px 44px; }
+    .rc-footer .social { display: flex; justify-content: center; gap: 28px; margin-bottom: 22px; }
+    .rc-footer .social a { font-size: 17px; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
     .rc-footer .social a:hover { color: var(--ink); }
-    .rc-footer .copy { font-size: 10px; letter-spacing: 2px; color: var(--ink-dim); }
+    .rc-footer .copy { font-size: 10px; letter-spacing: 3px; color: var(--ink-dim); text-transform: uppercase; }
 
-    @media (min-width: 500px) {
-      .rc-menu-illustration { display: block; }
+    /* Lightbox */
+    .lb-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(20,17,14,0.92);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(6px);
+    }
+    .lb-overlay.open { opacity: 1; pointer-events: all; }
+    .lb-inner { position: relative; max-width: 92vw; max-height: 90vh; display: flex; align-items: center; justify-content: center; }
+    .lb-img { max-width: 92vw; max-height: 88vh; object-fit: contain; border-radius: 2px; box-shadow: 0 32px 80px rgba(0,0,0,0.6); transform: scale(0.96); transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1); display: block; }
+    .lb-overlay.open .lb-img { transform: scale(1); }
+    .lb-close { position: absolute; top: -44px; right: 0; background: none; border: none; color: rgba(255,255,255,0.7); font-size: 22px; cursor: pointer; transition: color 0.2s, transform 0.2s; line-height: 1; }
+    .lb-close:hover { color: #fff; transform: rotate(90deg); }
+    .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(237,232,225,0.15); border: 1px solid rgba(237,232,225,0.25); color: #fff; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 13px; transition: background 0.2s; backdrop-filter: blur(6px); }
+    .lb-nav:hover { background: rgba(237,232,225,0.3); }
+    .lb-nav.lb-prev { left: -60px; }
+    .lb-nav.lb-next { right: -60px; }
+    .lb-counter { position: absolute; bottom: -36px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+
+
+    /* People section */
+    .rc-people {
+      padding: 72px 52px 90px;
+      max-width: 980px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+    .rc-people .rc-spread-header { margin-bottom: 44px; }
+    .rc-people-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .rc-people-grid img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+      border-radius: 1px;
+      transition: opacity 0.25s ease;
+    }
+    .rc-people-grid img:hover { opacity: 0.88; }
+    /* make first image span 2 columns for visual punch */
+    .rc-people-grid img:first-child {
+      grid-column: span 2;
+      aspect-ratio: 8/5;
     }
 
     @media (max-width: 768px) {
+      .rc-people { padding: 48px 24px 64px; }
+      .rc-people-grid { grid-template-columns: repeat(2, 1fr); }
+      .rc-people-grid img:first-child { grid-column: span 2; }
+    }
+    @media (max-width: 768px) {
       .rc-nav { padding: 14px 20px; }
       .rc-nav .links { gap: 14px; }
-      .rc-nav .links a { font-size: 9px; letter-spacing: 2px; }
       .rc-back { padding: 24px 24px 0; }
-      .rc-events { padding: 0 24px 60px; }
-      .rc-event-body { grid-template-columns: 1fr; gap: 36px; }
-      .rc-stat { padding: 24px 12px; }
-      .rc-stat .num { font-size: 36px; }
-      .rc-stats-bg { width: 100px; }
-      .rc-marquee-item { width: 220px; height: 160px; }
+      .rc-events { padding: 0 24px 64px; }
+      .rc-event-body { grid-template-columns: 1fr; gap: 40px; }
+      .rc-stat { padding: 28px 12px; }
+      .rc-stat .num { font-size: 40px; }
+      .lb-nav.lb-prev { left: -44px; }
+      .lb-nav.lb-next { right: -44px; }
     }
   </style>
 </head>
@@ -344,19 +259,72 @@
   </a>
 
   <header class="rc-hero">
-    <img class="rc-logo" src="images/sc-logo.png" alt="Supper Club @ UCI, where connections happen over dinner">
+    <h1 class="rc-logo-text">The Supper Club</h1>
     <div class="rc-rule"></div>
     <p class="rc-hero-sub">
       <span>Lead Event Coordinator</span>&middot;<span>UC Irvine</span>&middot;<span>2024</span>
     </p>
   </header>
 
+  <!-- Marquee -->
+  <section class="rc-photo-spread">
+    <header class="rc-spread-header">
+      <h2 class="rc-spread-title">Moments from the Series</h2>
+    </header>
+    <div class="rc-marquee-container">
+      <div class="rc-marquee-track">
+        <img src="images/cafe-matcha-pound-cake-plates.jpg"  alt="Matcha pound cake"        class="rc-marquee-item">
+        <img src="images/curry-guests-living-room-hires.jpg"       alt="Curry night guests"       class="rc-marquee-item">
+        <img src="images/cafe-table-spread.jpg"              alt="Café table spread"        class="rc-marquee-item">
+        <img src="images/curry-plating-service.jpg"          alt="Curry plating service"    class="rc-marquee-item">
+        <img src="images/cafe-banana-bread-board.jpg"        alt="Banana bread"             class="rc-marquee-item">
+        <img src="images/autumn-fennel-salad.jpg"            alt="Fennel salad"             class="rc-marquee-item">
+        <img src="images/curry-guests-rooftop.jpg"           alt="Rooftop dinner"           class="rc-marquee-item">
+        <img src="images/autumn-duck-plated.jpg"             alt="Dry aged duck"            class="rc-marquee-item">
+        <img src="images/cafe-basque-cheesecake.jpg"         alt="Basque cheesecake"        class="rc-marquee-item">
+        <img src="images/curry-kitchen-crowd-1.jpg"          alt="Kitchen crowd"            class="rc-marquee-item">
+        <img src="images/autumn-pasta-plating.jpg"           alt="Pasta plating"            class="rc-marquee-item">
+        <img src="images/autumn-pasta-tasting.jpg"            alt="Pasta torch"         class="rc-marquee-item">
+        <img src="images/autumn-pasta-torch.jpg"          alt="Pasta tasting"       class="rc-marquee-item">
+        <img src="images/curry-guests-thumbsup.jpg"          alt="Happy guests"             class="rc-marquee-item">
+        <img src="images/autumn-sweet-potato-brulee.jpg"     alt="Sweet potato brûlée"     class="rc-marquee-item">
+        <img src="images/cafe-matcha-tiramisu.jpg"           alt="Matcha tiramisu"          class="rc-marquee-item">
+        <img src="images/curry-kitchen-crowd-2.jpg"          alt="Kitchen energy"           class="rc-marquee-item">
+        <img src="images/autumn-dips-spread.jpg"             alt="Dips spread"              class="rc-marquee-item">
+        <img src="images/cafe-guests-holding-desserts.jpg"   alt="Café guests"              class="rc-marquee-item">
+        <img src="images/bbq-table-spread.jpg"               alt="BBQ table spread"         class="rc-marquee-item">
+        <!-- duplicate for seamless loop -->
+        <img src="images/cafe-matcha-pound-cake-plates.jpg"  alt="Matcha pound cake"        class="rc-marquee-item">
+        <img src="images/curry-guests-living-room-hires.jpg"       alt="Curry night guests"       class="rc-marquee-item">
+        <img src="images/cafe-table-spread.jpg"              alt="Café table spread"        class="rc-marquee-item">
+        <img src="images/curry-plating-service.jpg"          alt="Curry plating service"    class="rc-marquee-item">
+        <img src="images/cafe-banana-bread-board.jpg"        alt="Banana bread"             class="rc-marquee-item">
+        <img src="images/autumn-fennel-salad.jpg"            alt="Fennel salad"             class="rc-marquee-item">
+        <img src="images/curry-guests-rooftop.jpg"           alt="Rooftop dinner"           class="rc-marquee-item">
+        <img src="images/autumn-duck-plated.jpg"             alt="Dry aged duck"            class="rc-marquee-item">
+        <img src="images/cafe-basque-cheesecake.jpg"         alt="Basque cheesecake"        class="rc-marquee-item">
+        <img src="images/curry-kitchen-crowd-1.jpg"          alt="Kitchen crowd"            class="rc-marquee-item">
+        <img src="images/autumn-pasta-plating.jpg"           alt="Pasta plating"            class="rc-marquee-item">
+        <img src="images/autumn-pasta-tasting.jpg"            alt="Pasta torch"         class="rc-marquee-item">
+        <img src="images/autumn-pasta-torch.jpg"          alt="Pasta tasting"       class="rc-marquee-item">
+        <img src="images/curry-guests-thumbsup.jpg"          alt="Happy guests"             class="rc-marquee-item">
+        <img src="images/autumn-sweet-potato-brulee.jpg"     alt="Sweet potato brûlée"     class="rc-marquee-item">
+        <img src="images/cafe-matcha-tiramisu.jpg"           alt="Matcha tiramisu"          class="rc-marquee-item">
+        <img src="images/curry-kitchen-crowd-2.jpg"          alt="Kitchen energy"           class="rc-marquee-item">
+        <img src="images/autumn-dips-spread.jpg"             alt="Dips spread"              class="rc-marquee-item">
+        <img src="images/cafe-guests-holding-desserts.jpg"   alt="Café guests"              class="rc-marquee-item">
+        <img src="images/bbq-table-spread.jpg"               alt="BBQ table spread"         class="rc-marquee-item">
+      </div>
+    </div>
+  </section>
+
   <section class="rc-intro">
-    <p>Four events. Four different concepts. One team. The Supper Club @ UCI was an exercise in turning a good idea into a real experience, from planning the menu and coordinating grocery runs to organizing prep and making sure service ran clean.</p>
+    <p>Four events. Four different concepts. One team. <br> 
+      Driven by the goal of uniting people through food, <br> 
+      The Supper Club at UCI was an exercise in turning a good idea into a real experience, from planning the menu and coordinating grocery runs to organizing prep and making sure service ran clean.</p>
   </section>
 
   <div class="rc-stats">
-    <img src="6684B0B6-2632-4132-B636-BAB1263FA502.png" alt="" class="rc-stats-bg" aria-hidden="true">
     <div class="rc-stat"><span class="num">4</span><span class="lbl">Events</span></div>
     <div class="rc-stat"><span class="num">230+</span><span class="lbl">Students Fed</span></div>
     <div class="rc-stat"><span class="num">4</span><span class="lbl">Concepts</span></div>
@@ -364,8 +332,10 @@
 
   <main class="rc-events">
 
+    <!-- Event 01 -->
     <article class="rc-event">
       <header class="rc-event-head">
+        <span class="rc-event-season">Summer 2024</span>
         <span class="rc-event-num">01</span>
         <h2 class="rc-event-title">Plaza Verde BBQ</h2>
         <p class="rc-event-meta"><span>100 Guests</span>&middot;<span>Outdoor BBQ</span></p>
@@ -373,29 +343,30 @@
       <div class="rc-event-body">
         <div>
           <p class="rc-event-desc">The first event and the biggest. A full outdoor BBQ at Plaza Verde that drew 100 students and immediately set the bar for everything that followed. Planning the menu, coordinating grocery runs, and managing prep and grill logistics for a crowd of 100 on a debut event was the steepest learning curve, and the one that shaped how the rest of the series was run.</p>
-
-          <div class="rc-menu-wrapper">
-            <div class="rc-menu-content">
-              <span class="rc-menu-label">Menu</span>
-              <ul class="rc-menu-list">
-                <li>Wagyu Smash Burgers</li>
-                <li>Elote Corn</li>
-                <li>Garden Salad</li>
-                <li>French Onion Bread</li>
-              </ul>
-            </div>
-          </div>
+          <span class="rc-menu-label">Menu</span>
+          <ul class="rc-menu-list">
+            <li>Wagyu Smash Burgers</li>
+            <li>Elote Corn</li>
+            <li>Garden Salad</li>
+            <li>French Onion Bread</li>
+          </ul>
         </div>
-        <div class="rc-photos grid-2">
-          <div class="rc-ph ph-wide"><i class="fa-solid fa-image"></i><span>images/sc-bbq-hero.jpg</span></div>
-          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-bbq-2.jpg</span></div>
-          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-bbq-3.jpg</span></div>
+        <div class="event-carousel" id="ecar-01">
+          <div class="ecar-track">
+            <div class="ecar-slide"><img src="images/bbq-table-spread.jpg"  alt="BBQ table spread with fruit, flowers and guests"></div>
+            <div class="ecar-slide"><img src="images/bbq-chef-cooking.png"  alt="Chef cooking at the stove during BBQ prep"></div>
+          </div>
+          <button class="ecar-btn prev" data-car="ecar-01" data-dir="-1" aria-label="Prev"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="ecar-btn next" data-car="ecar-01" data-dir="1"  aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="ecar-dots" id="ecar-01-dots"></div>
         </div>
       </div>
     </article>
 
+    <!-- Event 02 -->
     <article class="rc-event">
       <header class="rc-event-head">
+        <span class="rc-event-season">Fall 2024</span>
         <span class="rc-event-num">02</span>
         <h2 class="rc-event-title">Autumn Dinner</h2>
         <p class="rc-event-meta"><span>40 Guests</span>&middot;<span>Multi-Course</span></p>
@@ -403,58 +374,68 @@
       <div class="rc-event-body">
         <div>
           <p class="rc-event-desc">The most ambitious menu of the four. A multi-course sit-down dinner built around seasonal ingredients, from dry aged duck to sweet potato crème brûlée. Menu planning, grocery coordination, and prep team organization all came together for one night.</p>
-          
-          <div class="rc-menu-wrapper">
-            <div class="rc-menu-content">
-              <span class="rc-menu-label">Menu</span>
-              <ul class="rc-menu-list">
-                <li>Fennel salad</li>
-                <li>Three dips with baguettes</li>
-                <li>Butternut squash pasta</li>
-                <li>Dry aged duck</li>
-                <li>Sweet potato crème brûlée</li>
-              </ul>
-            </div>
-            <img class="rc-menu-illustration" src="Flower_Line.png" alt="Hand-drawn floral bouquet" aria-hidden="true">
-          </div>
+          <span class="rc-menu-label">Menu</span>
+          <ul class="rc-menu-list">
+            <li>Fennel salad</li>
+            <li>Three dips with baguettes</li>
+            <li>Butternut squash pasta</li>
+            <li>Dry aged duck</li>
+            <li>Sweet potato crème brûlée</li>
+          </ul>
         </div>
-        <div class="rc-photos grid-2">
-          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-dinner-1.jpg</span></div>
-          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-dinner-2.jpg</span></div>
-          <div class="rc-ph ph-wide"><i class="fa-solid fa-image"></i><span>images/sc-dinner-menu.jpg</span></div>
+        <div class="event-carousel" id="ecar-02">
+          <div class="ecar-track">
+            <div class="ecar-slide"><img src="images/autumn-fennel-salad.jpg"        alt="Fennel salad plated on black plates"></div>
+            <div class="ecar-slide"><img src="images/autumn-dips-spread.jpg"         alt="Three dips with baguettes on wooden boards"></div>
+            <div class="ecar-slide"><img src="images/autumn-pasta-plating.jpg"       alt="Butternut squash pasta being plated"></div>
+            <div class="ecar-slide"><img src="images/autumn-pasta-tasting.jpg"          alt="Torch finishing the butternut squash pasta"></div>
+            <div class="ecar-slide"><img src="images/autumn-duck-resting.jpg"        alt="Dry aged duck legs resting on cutting board"></div>
+            <div class="ecar-slide"><img src="images/autumn-duck-plated.jpg"         alt="Sliced dry aged duck with fennel fronds"></div>
+            <div class="ecar-slide"><img src="images/autumn-sweet-potato-brulee.jpg" alt="Sweet potato crème brûlée with candied nuts"></div>
+          </div>
+          <button class="ecar-btn prev" data-car="ecar-02" data-dir="-1" aria-label="Prev"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="ecar-btn next" data-car="ecar-02" data-dir="1"  aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="ecar-dots" id="ecar-02-dots"></div>
         </div>
       </div>
     </article>
 
+    <!-- Event 03 -->
     <article class="rc-event">
       <header class="rc-event-head">
+        <span class="rc-event-season">Winter 2025</span>
         <span class="rc-event-num">03</span>
-        <h2 class="rc-event-title">Curry Night</h2>
-        <p class="rc-event-meta"><span>50 Guests</span>&middot;<span>Japanese Curry</span></p>
+        <h2 class="rc-event-title">Japanese Winter Dinner</h2>
+        <p class="rc-event-meta"><span>50 Guests</span>&middot;<span>Japanese</span></p>
       </header>
       <div class="rc-event-body">
         <div>
-          <p class="rc-event-desc">A more intimate event built around one dish done right. Curry Night brought 50 students together for a focused dinner that leaned into warmth and comfort. A smaller guest list meant tighter execution: precise grocery coordination, a streamlined prep team, and a menu that didn't need variety to feel complete.</p>
-
-          <div class="rc-menu-wrapper">
-            <div class="rc-menu-content">
-              <span class="rc-menu-label">Menu</span>
-              <ul class="rc-menu-list">
-                <li>Beef Japanese Curry</li>
-                <li>Vegan Japanese Curry</li>
-              </ul>
-            </div>
-          </div>
+          <p class="rc-event-desc">A winter dinner built around the warmth of Japanese comfort food. Fifty students gathered for beef and vegan curry, house-made soba, and vegetable tempura — a focused menu that leaned into the season. A smaller guest list meant tighter execution and a more intimate room.</p>
+          <span class="rc-menu-label">Menu</span>
+          <ul class="rc-menu-list">
+            <li>Beef Japanese Curry</li>
+            <li>Vegan Japanese Curry</li>
+            <li>House-made Soba</li>
+            <li>Vegetable Tempura</li>
+          </ul>
         </div>
-        <div class="rc-photos grid-2">
-          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-curry-1.jpg</span></div>
-          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-curry-2.jpg</span></div>
+        <div class="event-carousel" id="ecar-03">
+          <div class="ecar-track">
+            <div class="ecar-slide"><img src="images/curry-bowl-plated.jpg"    alt="Japanese curry with purple rice, plated and held up"></div>
+            <div class="ecar-slide"><img src="images/curry-soba-bowl.jpg"      alt="Soba noodle bowl with soft-boiled egg and scallions"></div>
+            <div class="ecar-slide"><img src="images/curry-pots-stove.jpg"     alt="Two large pots of curry simmering on the stove"></div>
+          </div>
+          <button class="ecar-btn prev" data-car="ecar-03" data-dir="-1" aria-label="Prev"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="ecar-btn next" data-car="ecar-03" data-dir="1"  aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="ecar-dots" id="ecar-03-dots"></div>
         </div>
       </div>
     </article>
 
+    <!-- Event 04 -->
     <article class="rc-event">
       <header class="rc-event-head">
+        <span class="rc-event-season">Spring 2025</span>
         <span class="rc-event-num">04</span>
         <h2 class="rc-event-title">Dawn Way Cafe</h2>
         <p class="rc-event-meta"><span>40 Guests</span>&middot;<span>Café Style</span></p>
@@ -462,55 +443,53 @@
       <div class="rc-event-body">
         <div>
           <p class="rc-event-desc">The final event took a café format: a relaxed, drop-in experience for 40 students to eat, hang out, and stay as long as they wanted. After three events, the logistics were smoother and the team was in sync. The café felt like the series finding its stride.</p>
-
-          <div class="rc-menu-wrapper">
-            <div class="rc-menu-content">
-              <span class="rc-menu-label">Menu</span>
-              <ul class="rc-menu-list">
-                <li>Brown Butter Banana Bread</li>
-                <li>Glazed Matcha Pound Cake</li>
-                <li>Strawberry Basque Cheesecake</li>
-                <li>Matcha Tiramisu</li>
-                <li>Matcha Einspänner</li>
-              </ul>
-            </div>
-          </div>
+          <span class="rc-menu-label">Menu</span>
+          <ul class="rc-menu-list">
+            <li>Brown Butter Banana Bread</li>
+            <li>Glazed Matcha Pound Cake</li>
+            <li>Strawberry Basque Cheesecake</li>
+            <li>Matcha Tiramisu</li>
+            <li>Matcha Einspänner</li>
+          </ul>
         </div>
-        <div class="rc-photos grid-2">
-          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-cafe-1.jpg</span></div>
-          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-cafe-2.jpg</span></div>
+        <div class="event-carousel" id="ecar-04">
+          <div class="ecar-track">
+            <div class="ecar-slide"><img src="images/cafe-matcha-pound-cake-plates.jpg" alt="Matcha pound cake with strawberries and chamomile"></div>
+            <div class="ecar-slide"><img src="images/cafe-basque-cheesecake.jpg"         alt="Basque cheesecake slice with strawberry sauce"></div>
+            <div class="ecar-slide"><img src="images/cafe-matcha-tiramisu.jpg"            alt="Matcha tiramisu slice with strawberry garnish"></div>
+            <div class="ecar-slide"><img src="images/cafe-banana-bread-board.jpg"         alt="Brown butter banana bread on wooden cutting board"></div>
+            <div class="ecar-slide"><img src="images/cafe-table-spread.jpg"               alt="Café table spread with matcha bowls and french press"></div>
+          </div>
+          <button class="ecar-btn prev" data-car="ecar-04" data-dir="-1" aria-label="Prev"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="ecar-btn next" data-car="ecar-04" data-dir="1"  aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="ecar-dots" id="ecar-04-dots"></div>
         </div>
       </div>
     </article>
 
   </main>
 
-  <section class="rc-photo-spread">
+
+
+  <!-- ===== PEOPLE ===== -->
+  <section class="rc-people">
     <header class="rc-spread-header">
-      <h2 class="rc-spread-title">Moments from the Series</h2>
+      <h2 class="rc-spread-title">The People</h2>
     </header>
-    <div class="rc-marquee-container">
-      <div class="rc-marquee-track">
-        <!-- Set 1 -->
-        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-fire-burner"></i><span>Cooking</span></div>
-        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-utensils"></i><span>Plating</span></div>
-        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-wine-glass"></i><span>The Table</span></div>
-        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-users"></i><span>Guests</span></div>
-        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-book-open"></i><span>Menu Detail</span></div>
-        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-camera"></i><span>Polaroids</span></div>
-        <!-- Set 2 (Exact Duplicate for a seamless infinite loop) -->
-        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-fire-burner"></i><span>Cooking</span></div>
-        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-utensils"></i><span>Plating</span></div>
-        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-wine-glass"></i><span>The Table</span></div>
-        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-users"></i><span>Guests</span></div>
-        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-book-open"></i><span>Menu Detail</span></div>
-        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-camera"></i><span>Polaroids</span></div>
-      </div>
+    <div class="rc-people-grid">
+      <img src="images/curry-guests-living-room-hires.jpg"   alt="Curry night guests gathered in the living room">
+      <img src="images/autumn-pasta-torch.jpg"              alt="Guest leaning in to taste butternut squash pasta">
+      <img src="images/curry-plating-service.jpg"      alt="Team plating curry for a full house">
+      <img src="images/curry-guests-rooftop.jpg"       alt="Guests eating on the rooftop at curry night">
+      <img src="images/curry-kitchen-crowd-1.jpg"      alt="Crowd gathering in the kitchen before service">
+      <img src="images/curry-kitchen-crowd-2.jpg"      alt="Kitchen crowd before service begins">
+      <img src="images/curry-guests-thumbsup.jpg"      alt="Three guests giving thumbs up after the meal">
+      <img src="images/bbq-table-spread.jpg"           alt="BBQ night table with fruit and flowers">
+      <img src="images/cafe-guests-holding-desserts.jpg" alt="Guests holding their café dessert plates">
     </div>
   </section>
 
   <footer class="rc-footer">
-    <img class="floral" src="Branch_Line.png" alt="Branch illustration divider">
     <div class="social">
       <a href="https://www.linkedin.com/in/andrew-l-xuu/" target="_blank" aria-label="LinkedIn"><span class="fa-brands fa-linkedin-in"></span></a>
       <a href="mailto:andrew.l.xuu@gmail.com" aria-label="Email"><span class="fa-solid fa-envelope"></span></a>
@@ -518,6 +497,100 @@
     </div>
     <p class="copy">&copy; 2026 Andrew Xu</p>
   </footer>
+
+  <!-- Lightbox -->
+  <div class="lb-overlay" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lb-inner">
+      <button class="lb-close" id="lbClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+      <img class="lb-img" id="lbImg" src="" alt="">
+      <button class="lb-nav lb-next" id="lbNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="lb-counter" id="lbCounter"></div>
+    </div>
+  </div>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    // ── Per-event carousels ──────────────────────────────────────────────
+    // State keyed by carousel id
+    const cars = {};
+
+    document.querySelectorAll('.event-carousel').forEach(car => {
+      const id    = car.id;
+      const track = car.querySelector('.ecar-track');
+      const slides = track.querySelectorAll('.ecar-slide');
+      const dotsEl = document.getElementById(id + '-dots');
+      cars[id] = { idx: 0, total: slides.length, track, dotsEl };
+
+      // Build dots
+      slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'ecar-dot' + (i === 0 ? ' active' : '');
+        d.addEventListener('click', () => carGo(id, i));
+        dotsEl.appendChild(d);
+      });
+    });
+
+    function carGo(id, idx) {
+      const c = cars[id];
+      c.idx = (idx + c.total) % c.total;
+      c.track.style.transform = `translateX(-${c.idx * 100}%)`;
+      c.dotsEl.querySelectorAll('.ecar-dot').forEach((d, i) => d.classList.toggle('active', i === c.idx));
+    }
+
+    // Wire buttons via data attributes — no inline onclick needed
+    document.querySelectorAll('.ecar-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id  = btn.dataset.car;
+        const dir = parseInt(btn.dataset.dir, 10);
+        carGo(id, cars[id].idx + dir);
+      });
+    });
+
+    // ── Lightbox ─────────────────────────────────────────────────────────
+    const lb        = document.getElementById('lb');
+    const lbImg     = document.getElementById('lbImg');
+    const lbCounter = document.getElementById('lbCounter');
+    let lbImages = [];
+    let lbIdx    = 0;
+
+    // Collect all real images (carousels + marquee), dedup by src
+    document.querySelectorAll('.event-carousel .ecar-slide img, img.rc-marquee-item, .rc-people-grid img').forEach(img => {
+      if (!lbImages.find(x => x.src === img.src)) {
+        lbImages.push({ src: img.src, alt: img.alt || '' });
+      }
+      img.addEventListener('click', () => openLb(lbImages.findIndex(x => x.src === img.src)));
+    });
+
+    function openLb(idx) {
+      lbIdx = (idx + lbImages.length) % lbImages.length;
+      lbImg.src = lbImages[lbIdx].src;
+      lbImg.alt = lbImages[lbIdx].alt;
+      lbCounter.textContent = (lbIdx + 1) + ' / ' + lbImages.length;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLb() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(() => { lbImg.src = ''; }, 300);
+    }
+    function lbMove(dir) { openLb(lbIdx + dir); }
+
+    document.getElementById('lbClose').addEventListener('click', closeLb);
+    document.getElementById('lbPrev').addEventListener('click', () => lbMove(-1));
+    document.getElementById('lbNext').addEventListener('click', () => lbMove(1));
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'ArrowRight') lbMove(1);
+      if (e.key === 'ArrowLeft')  lbMove(-1);
+      if (e.key === 'Escape')     closeLb();
+    });
+
+  }); // end DOMContentLoaded
+  </script>
 
 </body>
 </html>
