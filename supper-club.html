@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Andrew Xu">
+  <meta name="description" content="Supper Club @ UCI, four events, 230+ students, lead event coordinator.">
+  <title>Supper Club @ UCI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #EDE3D9;
+      --bg2:     #E4D8CA;
+      --ink:     #1A1612;
+      --ink-dim: rgba(26,22,18,0.5);
+      --ink-faint: rgba(26,22,18,0.08);
+      --border:  rgba(26,22,18,0.14);
+      --accent:  #3B2F24;
+    }
+
+    html, body { min-height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- Nav ---- */
+    .rc-nav {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center;
+      padding: 16px 48px;
+      background: rgba(237,227,217,0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .rc-nav .brand {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 5px; text-transform: uppercase;
+      color: var(--ink); text-decoration: none;
+    }
+    .rc-nav .links { display: flex; gap: 28px; margin-left: auto; align-items: center; }
+    .rc-nav .links a {
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--ink-dim); text-decoration: none; transition: color 0.2s ease;
+    }
+    .rc-nav .links a:hover, .rc-nav .links a.active { color: var(--ink); }
+
+    /* ---- Back ---- */
+    .rc-back {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--ink-dim); text-decoration: none;
+      padding: 36px 64px 0;
+      transition: color 0.2s ease;
+    }
+    .rc-back:hover { color: var(--ink); }
+
+    /* ---- Hero ---- */
+    .rc-hero {
+      display: flex; flex-direction: column;
+      align-items: center;
+      padding: 60px 24px 56px;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .rc-logo {
+      max-width: 520px; width: 90%;
+      margin-bottom: 32px;
+      opacity: 0.88;
+      mix-blend-mode: multiply;
+    }
+    .rc-rule {
+      width: 48px; height: 1px;
+      background: var(--ink-dim);
+      margin: 0 auto 24px;
+    }
+    .rc-hero-sub {
+      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--ink-dim);
+    }
+    .rc-hero-sub span { margin: 0 12px; }
+
+    /* ---- Intro ---- */
+    .rc-intro {
+      max-width: 600px; margin: 0 auto;
+      padding: 64px 24px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .rc-intro p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 2.8vw, 26px);
+      font-weight: 300; font-style: italic;
+      line-height: 1.75;
+      color: var(--ink-dim);
+    }
+
+    /* ---- Stats ---- */
+    .rc-stats {
+      display: flex; justify-content: center;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    /* Garlic Watermark */
+    .rc-stats-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 140px;
+      opacity: 0.12; 
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+    .rc-stat {
+      flex: 1; max-width: 220px;
+      padding: 40px 24px; text-align: center;
+      border-right: 1px solid var(--border);
+      position: relative; 
+      z-index: 2;
+    }
+    .rc-stat:last-child { border-right: none; }
+    .rc-stat .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 46px; font-weight: 300;
+      color: var(--ink); display: block;
+      line-height: 1; margin-bottom: 8px;
+    }
+    .rc-stat .lbl {
+      font-size: 9px; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--ink-dim);
+    }
+
+    /* ---- Events ---- */
+    .rc-events { max-width: 960px; margin: 0 auto; padding: 0 48px 80px; }
+    .rc-event { padding: 80px 0; border-bottom: 1px solid var(--border); }
+    .rc-event:last-child { border-bottom: none; }
+
+    .rc-event-head { text-align: center; margin-bottom: 52px; }
+    .rc-event-num {
+      font-size: 9px; letter-spacing: 5px;
+      text-transform: uppercase; color: var(--ink-dim);
+      display: block; margin-bottom: 14px;
+    }
+    .rc-event-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 6vw, 62px);
+      font-weight: 300; font-style: italic;
+      letter-spacing: 2px; color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .rc-event-meta {
+      font-size: 10px; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--ink-dim);
+    }
+    .rc-event-meta span { margin: 0 10px; }
+
+    .rc-event-body {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: start;
+    }
+    .rc-event-desc {
+      font-size: 15px; line-height: 1.9;
+      color: var(--ink-dim); margin-bottom: 28px;
+    }
+
+    /* ---- Menu ---- */
+    .rc-menu-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .rc-menu-content {
+      flex-grow: 1;
+    }
+    .rc-menu-illustration {
+      width: 110px;
+      opacity: 0.85;
+      mix-blend-mode: multiply;
+      display: none; 
+    }
+    .rc-menu-label {
+      font-size: 9px; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--ink-dim);
+      display: block; margin-bottom: 14px;
+    }
+    .rc-menu-list { list-style: none; }
+    .rc-menu-list li {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px; font-weight: 300; font-style: italic;
+      color: var(--ink); padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: 0.5px;
+    }
+    .rc-menu-list li:first-child { border-top: 1px solid var(--border); }
+
+    /* ---- Photos ---- */
+    .rc-photos { display: grid; gap: 8px; }
+    .rc-photos.grid-2 { grid-template-columns: 1fr 1fr; }
+    .rc-photos.grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .rc-photos img {
+      width: 100%; display: block;
+      border-radius: 1px;
+      aspect-ratio: 4/3; object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+    .rc-photos img:hover { opacity: 0.88; }
+    .rc-photos img.hero-img { grid-column: 1/-1; aspect-ratio: 16/7; }
+
+    /* Placeholder */
+    .rc-ph {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 8px; text-align: center; padding: 40px 16px;
+    }
+    .rc-ph.ph-wide { grid-column: 1/-1; aspect-ratio: 16/7; }
+    .rc-ph.ph-sq { aspect-ratio: 4/3; }
+    .rc-ph i { font-size: 18px; color: var(--ink-dim); opacity: 0.5; }
+    .rc-ph span { font-size: 10px; letter-spacing: 1px; color: var(--ink-dim); }
+
+    /* ---- Photo Spread Marquee ---- */
+    .rc-photo-spread {
+      padding: 60px 0 80px;
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+    }
+    .rc-spread-header {
+      text-align: center; margin-bottom: 40px;
+    }
+    .rc-spread-title {
+      font-size: 10px; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--ink-dim);
+    }
+    .rc-marquee-container {
+      position: relative;
+      width: 100%;
+      display: flex;
+      overflow: hidden;
+    }
+    /* Gradient fades for smooth edges */
+    .rc-marquee-container::before,
+    .rc-marquee-container::after {
+      content: "";
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 12vw;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .rc-marquee-container::before {
+      left: 0;
+      background: linear-gradient(to right, var(--bg), transparent);
+    }
+    .rc-marquee-container::after {
+      right: 0;
+      background: linear-gradient(to left, var(--bg), transparent);
+    }
+    .rc-marquee-track {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      /* 35s speed, linear curve, infinite loop */
+      animation: marquee-scroll 35s linear infinite;
+    }
+    .rc-marquee-track:hover {
+      animation-play-state: paused;
+    }
+    .rc-marquee-item {
+      width: 280px;
+      height: 200px;
+      flex-shrink: 0;
+      border-radius: 1px;
+      object-fit: cover;
+    }
+    .rc-ph.rc-marquee-item {
+      aspect-ratio: auto; /* Overrides default ph-sq */
+    }
+
+    /* Seamless scroll math: shift by exactly half the track width + half the gap */
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 8px)); }
+    }
+
+    /* Footer */
+    .rc-footer {
+      border-top: 1px solid var(--border);
+      text-align: center; padding: 56px 24px 40px;
+    }
+    .rc-footer .floral { width: 75px; opacity: 0.6; mix-blend-mode: multiply; margin-bottom: 24px; }
+    .rc-footer .social { display: flex; justify-content: center; gap: 28px; margin-bottom: 20px; }
+    .rc-footer .social a { font-size: 17px; color: var(--ink-dim); text-decoration: none; transition: color 0.2s ease; }
+    .rc-footer .social a:hover { color: var(--ink); }
+    .rc-footer .copy { font-size: 10px; letter-spacing: 2px; color: var(--ink-dim); }
+
+    @media (min-width: 500px) {
+      .rc-menu-illustration { display: block; }
+    }
+
+    @media (max-width: 768px) {
+      .rc-nav { padding: 14px 20px; }
+      .rc-nav .links { gap: 14px; }
+      .rc-nav .links a { font-size: 9px; letter-spacing: 2px; }
+      .rc-back { padding: 24px 24px 0; }
+      .rc-events { padding: 0 24px 60px; }
+      .rc-event-body { grid-template-columns: 1fr; gap: 36px; }
+      .rc-stat { padding: 24px 12px; }
+      .rc-stat .num { font-size: 36px; }
+      .rc-stats-bg { width: 100px; }
+      .rc-marquee-item { width: 220px; height: 160px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="rc-nav" aria-label="Main navigation">
+    <a class="brand" href="index.html">Andrew Xu</a>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a class="active" href="supper-club.html">Supper Club @ UCI</a>
+      <a href="aboutme.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <a class="rc-back" href="aboutme.html">
+    <span class="fa-solid fa-arrow-left" aria-hidden="true"></span> Back to About
+  </a>
+
+  <header class="rc-hero">
+    <img class="rc-logo" src="images/sc-logo.png" alt="Supper Club @ UCI, where connections happen over dinner">
+    <div class="rc-rule"></div>
+    <p class="rc-hero-sub">
+      <span>Lead Event Coordinator</span>&middot;<span>UC Irvine</span>&middot;<span>2024</span>
+    </p>
+  </header>
+
+  <section class="rc-intro">
+    <p>Four events. Four different concepts. One team. The Supper Club @ UCI was an exercise in turning a good idea into a real experience, from planning the menu and coordinating grocery runs to organizing prep and making sure service ran clean.</p>
+  </section>
+
+  <div class="rc-stats">
+    <img src="6684B0B6-2632-4132-B636-BAB1263FA502.png" alt="" class="rc-stats-bg" aria-hidden="true">
+    <div class="rc-stat"><span class="num">4</span><span class="lbl">Events</span></div>
+    <div class="rc-stat"><span class="num">230+</span><span class="lbl">Students Fed</span></div>
+    <div class="rc-stat"><span class="num">4</span><span class="lbl">Concepts</span></div>
+  </div>
+
+  <main class="rc-events">
+
+    <article class="rc-event">
+      <header class="rc-event-head">
+        <span class="rc-event-num">01</span>
+        <h2 class="rc-event-title">Plaza Verde BBQ</h2>
+        <p class="rc-event-meta"><span>100 Guests</span>&middot;<span>Outdoor BBQ</span></p>
+      </header>
+      <div class="rc-event-body">
+        <div>
+          <p class="rc-event-desc">The first event and the biggest. A full outdoor BBQ at Plaza Verde that drew 100 students and immediately set the bar for everything that followed. Planning the menu, coordinating grocery runs, and managing prep and grill logistics for a crowd of 100 on a debut event was the steepest learning curve, and the one that shaped how the rest of the series was run.</p>
+
+          <div class="rc-menu-wrapper">
+            <div class="rc-menu-content">
+              <span class="rc-menu-label">Menu</span>
+              <ul class="rc-menu-list">
+                <li>Wagyu Smash Burgers</li>
+                <li>Elote Corn</li>
+                <li>Garden Salad</li>
+                <li>French Onion Bread</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="rc-photos grid-2">
+          <div class="rc-ph ph-wide"><i class="fa-solid fa-image"></i><span>images/sc-bbq-hero.jpg</span></div>
+          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-bbq-2.jpg</span></div>
+          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-bbq-3.jpg</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="rc-event">
+      <header class="rc-event-head">
+        <span class="rc-event-num">02</span>
+        <h2 class="rc-event-title">Autumn Dinner</h2>
+        <p class="rc-event-meta"><span>40 Guests</span>&middot;<span>Multi-Course</span></p>
+      </header>
+      <div class="rc-event-body">
+        <div>
+          <p class="rc-event-desc">The most ambitious menu of the four. A multi-course sit-down dinner built around seasonal ingredients, from dry aged duck to sweet potato crème brûlée. Menu planning, grocery coordination, and prep team organization all came together for one night.</p>
+          
+          <div class="rc-menu-wrapper">
+            <div class="rc-menu-content">
+              <span class="rc-menu-label">Menu</span>
+              <ul class="rc-menu-list">
+                <li>Fennel salad</li>
+                <li>Three dips with baguettes</li>
+                <li>Butternut squash pasta</li>
+                <li>Dry aged duck</li>
+                <li>Sweet potato crème brûlée</li>
+              </ul>
+            </div>
+            <img class="rc-menu-illustration" src="Flower_Line.png" alt="Hand-drawn floral bouquet" aria-hidden="true">
+          </div>
+        </div>
+        <div class="rc-photos grid-2">
+          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-dinner-1.jpg</span></div>
+          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-dinner-2.jpg</span></div>
+          <div class="rc-ph ph-wide"><i class="fa-solid fa-image"></i><span>images/sc-dinner-menu.jpg</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="rc-event">
+      <header class="rc-event-head">
+        <span class="rc-event-num">03</span>
+        <h2 class="rc-event-title">Curry Night</h2>
+        <p class="rc-event-meta"><span>50 Guests</span>&middot;<span>Japanese Curry</span></p>
+      </header>
+      <div class="rc-event-body">
+        <div>
+          <p class="rc-event-desc">A more intimate event built around one dish done right. Curry Night brought 50 students together for a focused dinner that leaned into warmth and comfort. A smaller guest list meant tighter execution: precise grocery coordination, a streamlined prep team, and a menu that didn't need variety to feel complete.</p>
+
+          <div class="rc-menu-wrapper">
+            <div class="rc-menu-content">
+              <span class="rc-menu-label">Menu</span>
+              <ul class="rc-menu-list">
+                <li>Beef Japanese Curry</li>
+                <li>Vegan Japanese Curry</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="rc-photos grid-2">
+          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-curry-1.jpg</span></div>
+          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-curry-2.jpg</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="rc-event">
+      <header class="rc-event-head">
+        <span class="rc-event-num">04</span>
+        <h2 class="rc-event-title">Dawn Way Cafe</h2>
+        <p class="rc-event-meta"><span>40 Guests</span>&middot;<span>Café Style</span></p>
+      </header>
+      <div class="rc-event-body">
+        <div>
+          <p class="rc-event-desc">The final event took a café format: a relaxed, drop-in experience for 40 students to eat, hang out, and stay as long as they wanted. After three events, the logistics were smoother and the team was in sync. The café felt like the series finding its stride.</p>
+
+          <div class="rc-menu-wrapper">
+            <div class="rc-menu-content">
+              <span class="rc-menu-label">Menu</span>
+              <ul class="rc-menu-list">
+                <li>Brown Butter Banana Bread</li>
+                <li>Glazed Matcha Pound Cake</li>
+                <li>Strawberry Basque Cheesecake</li>
+                <li>Matcha Tiramisu</li>
+                <li>Matcha Einspänner</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="rc-photos grid-2">
+          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-cafe-1.jpg</span></div>
+          <div class="rc-ph ph-sq"><i class="fa-solid fa-image"></i><span>images/sc-cafe-2.jpg</span></div>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <section class="rc-photo-spread">
+    <header class="rc-spread-header">
+      <h2 class="rc-spread-title">Moments from the Series</h2>
+    </header>
+    <div class="rc-marquee-container">
+      <div class="rc-marquee-track">
+        <!-- Set 1 -->
+        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-fire-burner"></i><span>Cooking</span></div>
+        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-utensils"></i><span>Plating</span></div>
+        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-wine-glass"></i><span>The Table</span></div>
+        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-users"></i><span>Guests</span></div>
+        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-book-open"></i><span>Menu Detail</span></div>
+        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-camera"></i><span>Polaroids</span></div>
+        <!-- Set 2 (Exact Duplicate for a seamless infinite loop) -->
+        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-fire-burner"></i><span>Cooking</span></div>
+        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-utensils"></i><span>Plating</span></div>
+        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-wine-glass"></i><span>The Table</span></div>
+        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-users"></i><span>Guests</span></div>
+        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-book-open"></i><span>Menu Detail</span></div>
+        <div class="rc-ph rc-marquee-item"><i class="fa-solid fa-camera"></i><span>Polaroids</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="rc-footer">
+    <img class="floral" src="Branch_Line.png" alt="Branch illustration divider">
+    <div class="social">
+      <a href="https://www.linkedin.com/in/andrew-l-xuu/" target="_blank" aria-label="LinkedIn"><span class="fa-brands fa-linkedin-in"></span></a>
+      <a href="mailto:andrew.l.xuu@gmail.com" aria-label="Email"><span class="fa-solid fa-envelope"></span></a>
+      <a href="https://github.com/andrewxuu" target="_blank" aria-label="GitHub"><span class="fa-brands fa-github"></span></a>
+    </div>
+    <p class="copy">&copy; 2026 Andrew Xu</p>
+  </footer>
+
+</body>
+</html>

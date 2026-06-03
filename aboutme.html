@@ -2,151 +2,211 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="author" content="Andrew Xu">
-    <meta name="description" content="A1: Responsive Portfolio">
-    <title>Andrew Xu | Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Andrew Xu">
+  <meta name="description" content="About Andrew Xu, Systems & Level Designer, UC Irvine.">
+  <title>Andrew Xu | About</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      try { if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark'); } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
-    <div class="container-fluid">
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">ANDREW XU</a>
+      <div class="links">
+        <a href="index.html">HOME</a>
+        <a href="projects.html">PROJECTS</a>
+        <a class="active" aria-current="page" href="aboutme.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="margin-left:10px;">
+          <span class="fa-solid fa-moon" id="themeIcon" aria-hidden="true"></span>
+          <span id="themeLabel">Dark</span>
+        </button>
+      </div>
+    </nav>
+  </header>
 
-    <header> 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.html">Andrew Xu - Portfolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fa-solid fa-bars" style="color: #ffffff;" aria-hidden="true"></span>            </button>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">About</a></li>
-                </ul>
+  <main class="page">
+    <span class="page-kicker">Player Info</span>
+    <h1 class="page-title">ABOUT <span>ME</span></h1>
+
+    <div class="row g-5 mt-1">
+      <div class="col-md-4 text-center">
+        <img src="images/pfp.jpg" alt="Portrait of Andrew Xu" class="pfp">
+      </div>
+
+      <div class="col-md-8">
+        <section id="mission" class="mb-5">
+          <h2 class="display" style="font-size:30px;">Hi, I'm Andrew</h2>
+          <blockquote class="p3-quote">
+            I'm a game designer studying at UC Irvine, where a chance encounter with Persona 5 Royal sent me down a path I haven't looked back from. I specialize in the systems side of design: playtesting, balance, and making sure what a team builds is what players actually experience. Outside of games, I play badminton and cook!
+          </blockquote>
+          <p style="margin-top:16px;">
+            <a class="p3-btn" href="supper-club.html">View Supper Club &rarr;</a>
+          </p>
+        </section>
+
+        <section id="work-experience" class="mb-5">
+          <h2 class="sec-head" style="margin-top:0;">Experience</h2>
+
+          <div class="entry">
+            <div class="row-head">
+              <h3>Undergraduate Teaching Assistant</h3>
+              <span class="when">Sept. 2025 - Present</span>
             </div>
-        </nav>
-    </header>
+            <h4 class="muted">University of California, Irvine</h4>
+            <ul>
+              <li><strong>GDIM 61: Introduction to Game Development</strong> (Mar. 2026 – Present): Support 105 students through the full game-development pipeline, covering scope management, burndown charts, vertical slice, and alpha/beta testing; deliver weekly milestone feedback to keep teams on track.</li>
+              <li><strong>GDIM 131: Game Data Analysis</strong> (Jan. – Mar. 2026): Helped 90 students analyze gameplay data from Twine-based narrative games to spot trends, read player stats, and strengthen their design decisions.</li>
+              <li><strong>GDIM 129: Advanced TTRPG Design</strong> (Sep. – Dec. 2025): Reviewed rulebooks and mechanics for 70 students, giving detailed feedback to tighten game balance and stability.</li>
+            </ul>
+          </div>
 
-    <main class="mt-5">
-        <div class="row justify-content-center">
-
-            <div class="col-lg-10 col-12">
-                <h1 class="about-title fw-bold mb-4">About</h1>
-
-                <div class="row">
-                    <div class="col-md-4 text-center mb-4">
-                        <img src="images/pfp.jpg" alt="profile picture" class="img-fluid rounded-circle shadow" style="max-width: 250px;">
-                    </div>
-
-                    <div class="col-md-8">
-
-                        <section id="mission" class="mb-5">
-                            <h2>Hi, I'm Andrew </h2>
-                            <blockquote class="blockquote border-start border-primary border-4 ps-3">
-                                <p class="mb-0 lead">
-                                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                                </p>
-                            </blockquote>
-                        </section>
-
-                        <section id="work-experience" class="mb-5">
-                            <h2>Relevant Experience</h2>
-
-                            <div class="mb-4 p-3 border rounded">
-                                <h3 class="d-flex justify-content-between">
-                                    <span>Quality Assurance Analyst / Game Tester</span>
-                                    <span class="text-muted small">Sept. 2024 - Present</span>
-                                </h3>
-                                <h4 class="mb-2 text-muted">University of California, Irvine - Student Projects</h4>
-                                <ul class="small">
-                                    <li>Authored 9+ QA reports across multiple student-developed games.</li>
-                                    <li>Supported iterative playtesting, gathering player feedback, and translating findings into actionable improvements.</li>
-                                    <li>Collaborated with development teams to verify bug fixes, track regressions, and maintain game stability.</li>
-                                </ul>
-                            </div>
-
-                            <div class="mb-4 p-3 border rounded">
-                                <h3 class="d-flex justify-content-between">
-                                    <span>Course Reader - Academic Personnel</span>
-                                    <span class="text-muted small">Sept. 2025 - Present</span>
-                                </h3>
-                                <h4 class="mb-2 text-muted">University of California, Irvine - GDIM 129</h4>
-                                <ul class="small">
-                                    <li>Collaborate with the professor to restructure the class, providing a more impactful and engaging learning experience.</li>
-                                    <li>Grade assignments, providing meaningful feedback for students to improve.</li>
-                                    <li>Answer students' questions regarding the class, assignment, and game industry.</li>
-                                </ul>
-                            </div>
-                        </section>
-
-                        <section id="education" class="mb-5">
-                            <h2>Education</h2>
-
-                            <div class="mb-4 p-3 border rounded">
-                                <h3 class="d-flex justify-content-between">
-                                    <span>University of California, Irvine</span>
-                                    <span class="text-muted small">Sept. 2023 - Expected 2026</span>
-                                </h3>
-                                <h4 class="mb-2">B.S. Game Design and Interactive Media & Informatics</h4>
-                                <p class="small mb-0">Relevant Courses: Project Management, Game Data Analytics, Project in HCI, Game Engine Lab.</p>
-                            </div>
-
-                            <div class="mb-4 p-3 border rounded">
-                                <h3 class="d-flex justify-content-between">
-                                    <span>Pasadena City College</span>
-                                    <span class="text-muted small">June 2022 - June 2023</span>
-                                </h3>
-                                <h4 class="mb-2">A.A. Digital Media Arts, Computer Science</h4>
-                            </div>
-                        </section>
-
-                    </div>
-                </div>
+          <div class="entry">
+            <div class="row-head">
+              <h3>Game Tester</h3>
+              <span class="when">Sept. 2024 - Sept. 2025</span>
             </div>
-        </div>
-    </main>
+            <h4 class="muted">Capstone Projects @ UC Irvine</h4>
+            <ul>
+              <li>Wrote 9+ bug reports across multiple student games, logging steps to reproduce, severity level, and actual vs. expected outcome.</li>
+              <li>Re-tested fixes after each patch to check for regressions and catch anything newly broken.</li>
+              <li>Consolidated playtest notes into prioritized task lists using version control, helping teams ship more stable builds.</li>
+              <li>Worked with developers across design and engineering to keep bug tracking current and flag recurring issues.</li>
+            </ul>
+          </div>
+        </section>
 
-    <footer class="text-center py-3 mt-0 text-white">
-        <h2 class="mb-4">Connect</h2>
-        <div class="d-flex justify-content-center">
-            <a href="https://www.linkedin.com/in/andrew-l-xuu/" target="_blank" class="text-white mx-3">
-                <span class="fa-brands fa-linkedin-in fa-3x" aria-hidden="true"></span>
-                <span class="visually-hidden">LinkedIn Profile</span>
-            </a>
-            <a href="mailto:andrewx5@uci.edu" class="text-white mx-3">
-                <span class="fa-solid fa-envelope fa-3x" aria-hidden="true"></span>
-                <span class="visually-hidden">Email Andrew Xu</span>
-            </a>
-            <a href="https://github.com/andrewxuu" target="_blank" class="text-white mx-3">
-                <span class="fa-brands fa-github fa-3x" aria-hidden="true"></span>
-                <span class="visually-hidden">GitHub Repository</span>
-            </a>
-            <a href="https://discord.com/users/377968184894160897" target="_blank" class="text-white mx-3">
-                <span class="fa-brands fa-discord fa-3x" aria-hidden="true"></span>
-                <span class="visually-hidden">Discord Contact</span>
-            </a>
+        <section id="skills" class="mb-5">
+          <h2 class="sec-head" style="margin-top:0;">Technical Skills</h2>
+
+          <div class="entry">
+            <h3 style="font-size:16px;">QA &amp; Tools</h3>
+            <div style="margin-top:6px;">
+              <span class="pill pill-blue">Bug Reporting</span>
+              <span class="pill pill-blue">Playtesting</span>
+              <span class="pill pill-blue">Test Case Management</span>
+              <span class="pill pill-blue">Regression Testing</span>
+              <span class="pill pill-blue">Test Automation</span>
+              <span class="pill pill-blue">Agile / Scrum</span>
+              <span class="pill pill-blue">Jira</span>
+              <span class="pill pill-blue">Notion</span>
+              <span class="pill pill-blue">Trello</span>
+              <span class="pill pill-blue">Git</span>
+              <span class="pill pill-blue">Microsoft Office</span>
             </div>
-        <p class="mt-3">&copy; 2025 Andrew Xu. Built with HTML, CSS, and Bootstrap.</p>
-    </footer>
+          </div>
 
-</div> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
-<p>
-    <a href="http://validator.w3.org/check?uri=referer">
-    W3C validator
-    </a>
-</p>
+          <div class="entry">
+            <h3 style="font-size:16px;">Engines &amp; Programming</h3>
+            <div style="margin-top:6px;">
+              <span class="pill pill-cyan">Unity</span>
+              <span class="pill pill-cyan">Godot</span>
+              <span class="pill pill-cyan">Unreal Engine</span>
+              <span class="pill pill-cyan">Twine</span>
+              <span class="pill pill-cyan">C#</span>
+              <span class="pill pill-cyan">C++</span>
+              <span class="pill pill-cyan">Python</span>
+              <span class="pill pill-cyan">Java</span>
+              <span class="pill pill-cyan">R</span>
+            </div>
+          </div>
+
+          <div class="entry">
+            <h3 style="font-size:16px;">Web &amp; Design</h3>
+            <div style="margin-top:6px;">
+              <span class="pill pill-line">HTML</span>
+              <span class="pill pill-line">CSS</span>
+              <span class="pill pill-line">React</span>
+              <span class="pill pill-line">Angular</span>
+              <span class="pill pill-line">Ionic</span>
+              <span class="pill pill-line">TypeScript</span>
+              <span class="pill pill-line">Figma</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="education" class="mb-5">
+          <h2 class="sec-head" style="margin-top:0;">Education</h2>
+
+          <div class="entry">
+            <div class="row-head">
+              <h3>University of California, Irvine</h3>
+              <span class="when">Sept. 2023 - Expected Jun. 2026</span>
+            </div>
+            <h4>B.S. Game Design &amp; Interactive Media &nbsp;|&nbsp; Minor in Informatics</h4>
+            <p class="text muted" style="font-size:13px;margin:0;">Relevant Coursework: Game Data Analytics, Game Engine Lab, Project Management, Project in HCI.</p>
+          </div>
+
+          <div class="entry">
+            <div class="row-head">
+              <h3>Pasadena City College</h3>
+              <span class="when">June 2022 - June 2023</span>
+            </div>
+            <h4>A.A. Digital Media Arts, Computer Science</h4>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <h2>Connect</h2>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/andrew-l-xuu/" target="_blank" aria-label="LinkedIn">
+        <span class="fa-brands fa-linkedin-in" aria-hidden="true"></span>
+      </a>
+      <a href="mailto:andrew.l.xuu@gmail.com" aria-label="Email Andrew Xu">
+        <span class="fa-solid fa-envelope" aria-hidden="true"></span>
+      </a>
+      <a href="https://github.com/andrewxuu" target="_blank" aria-label="GitHub">
+        <span class="fa-brands fa-github" aria-hidden="true"></span>
+      </a>
+      <a href="https://discord.com/users/377968184894160897" target="_blank" aria-label="Discord">
+        <span class="fa-brands fa-discord" aria-hidden="true"></span>
+      </a>
+    </div>
+    <p class="copyright">&copy; 2026 Andrew Xu. Built with HTML, CSS, and Bootstrap.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('themeToggle');
+      var icon = document.getElementById('themeIcon');
+      var label = document.getElementById('themeLabel');
+      function sync() {
+        var dark = root.classList.contains('dark');
+        label.textContent = dark ? 'Light' : 'Dark';
+        icon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      }
+      sync();
+      btn.addEventListener('click', function () {
+        root.classList.toggle('dark');
+        try { localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light'); } catch (e) {}
+        sync();
+      });
+    })();
+  </script>
 </body>
 </html>
-

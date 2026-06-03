@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Andrew Xu">
+  <meta name="description" content="A product and launch-strategy teardown of Dispatch (AdHoc Studio): compressed episodic distribution, system design, and live-ops production.">
+  <title>Andrew Xu | Dispatch Strategy Teardown</title>
+
+  <script>
+    (function () {
+      try { if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark'); } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">ANDREW XU</a>
+      <div class="links">
+        <a href="index.html">HOME</a>
+        <a class="active" aria-current="page" href="projects.html">PROJECTS</a>
+        <a href="aboutme.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="margin-left:10px;">
+          <span class="fa-solid fa-moon" id="themeIcon" aria-hidden="true"></span>
+          <span id="themeLabel">Dark</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <article class="article">
+    <a class="back-link" href="projects.html">
+      <span class="fa-solid fa-arrow-left" aria-hidden="true"></span> Back to Projects
+    </a>
+
+    <header class="article-head">
+      <span class="page-kicker">Feature</span>
+      <h1 class="article-title">How AdHoc Studio's <span>Dispatch</span> Fixed the Narrative Game Release Crisis</h1>
+      <p class="article-dek">Bingeing is out. Waiting months is dead. Welcome to the Compressed Episodic Rollout.</p>
+
+      <div class="article-meta">
+        <div class="meta-item">
+          <span class="meta-label">Subject</span>
+          <span class="meta-value">Dispatch / AdHoc Studio</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Focus</span>
+          <span class="meta-value">Live-Ops &amp; Distribution</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Released</span>
+          <span class="meta-value">Fall 2025</span>
+        </div>
+      </div>
+    </header>
+
+    <img class="article-hero" src="images/dispatch-capsule.png" alt="Dispatch capsule art: the DISPATCH logo beside a hung superhero cape in a restroom scene">
+
+    <div class="article-body">
+
+      <p>
+        If you follow the narrative games space, you know we have been stuck between a rock and a hard place for years. Developers have essentially faced a brutal distribution binary: drop the entire game at once and watch streamers spoil the ending on Day One, or use a traditional episodic model and bleed your player base dry over months of agonizing waits.
+      </p>
+      <p>
+        Enter Dispatch. Released by AdHoc Studio in late 2025, Dispatch didn't just survive this binary, it shattered it. By gating its eight episodes into twin-packs across four consecutive weeks, the studio engineered a sustained, one-month cultural footprint. The result? Over 1 million units sold within the first ten days. This wasn't a marketing gimmick; it was a fundamental alignment of game design, technical architecture, and release logistics.
+      </p>
+
+      <h2>The Core Product: Plate-Spinning with Supervillains</h2>
+      <p>
+        Before you can understand the rollout, you have to understand why the mechanics demanded breathing room. Dispatch merges the branching dialogue of prestige interactive fiction with the high-stress resource allocation of a management sim.
+      </p>
+      <p>
+        You play as Robert Robertson III, formerly the superhero "Mecha Man." But your suit is busted, and now you are stuck running the Superhero Dispatch Network. Your job? Managing a chaotic, highly volatile roster of reformed villains known as the Z-Team.
+      </p>
+
+      <figure>
+        <img src="images/dispatch-concept.png" alt="Dispatch concept art: a caped hero and Robert at the dispatch office, a mech poster on the wall">
+        <figcaption>Concept art: the dispatch office, where the player plays "the guy in the chair."</figcaption>
+      </figure>
+
+      <p>Mechanically, the game fires on three distinct cylinders:</p>
+      <ul>
+        <li><strong>Resource Allocation &amp; Team Volatility.</strong> You are constantly assigning Z-Team members to dynamic city crises. Every reformed villain carries distinct, high-value skills, but they also carry disruptive toxic traits. Success means balancing the operational demands of a crisis against the incredibly fragile psychological state of your roster.</li>
+        <li><strong>Real-Time Crisis Intervention.</strong> Once a team is deployed, you are the "guy in the chair." You monitor progress through radio and dispatch consoles, making split-second dialogue decisions to guide the team through operational bottlenecks or stop characters from reverting to their villainous habits.</li>
+        <li><strong>Cascading State Management.</strong> Here is where the teeth are. A flawless operational save might trigger a massive PR fallout. Under the hood, this requires a robust state-management architecture. The game isn't flipping simple booleans; it relies on complex event systems, likely a mix of underlying C# logic communicating with the narrative designers' visual scripting tools, to ensure a subtle choice in Week 1 accurately updates UI elements, dialogue trees, and character behaviors in Week 4 without breaking the build.</li>
+      </ul>
+
+      <h2>The 28-Day Sprint: A New Distribution Playbook</h2>
+      <p>
+        To mirror the "watercooler effect" of premium weekly television, AdHoc Studio skipped traditional multi-month release cycles entirely. Instead, they opted for a strict, 28-day global cadence.
+      </p>
+
+      <div class="timeline" id="releaseTimeline">
+        <div class="tl-item">
+          <span class="tl-marker" aria-hidden="true"></span>
+          <h3 class="tl-title">Week 1: Establishing the Loop</h3>
+          <span class="tl-date">Oct 22</span>
+          <p class="tl-desc">Episodes 1 &amp; 2 (<em>Pivot, Onboard</em>). Introduced the core crisis-management mechanics and set up the deeply flawed Z-Team roster.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-marker" aria-hidden="true"></span>
+          <h3 class="tl-title">Week 2: Enforcing Consequences</h3>
+          <span class="tl-date">Oct 29</span>
+          <p class="tl-desc">Episodes 3 &amp; 4 (<em>Turnover, Restructure</em>). Forced players to grapple with the immediate, messy fallout of their Week 1 dialogue choices.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-marker" aria-hidden="true"></span>
+          <h3 class="tl-title">Week 3: The Climax</h3>
+          <span class="tl-date">Nov 5</span>
+          <p class="tl-desc">Episodes 5 &amp; 6 (<em>Team Building, Moving Parts</em>). Pushed the narrative tension to its peak, maximizing community theorizing and podcast fodder.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-marker" aria-hidden="true"></span>
+          <h3 class="tl-title">Week 4: The Finale &amp; The Binge</h3>
+          <span class="tl-date">Nov 12</span>
+          <p class="tl-desc">Episodes 7 &amp; 8 (<em>Retrospective, Synergy</em>). Concluded the story, satisfying the core fanbase while opening the door for the "wait-and-see" audience to buy the completed game.</p>
+        </div>
+      </div>
+
+      <h2>Why the Old Models Are Failing</h2>
+      <p>
+        The industry has long debated how best to deliver narrative-heavy experiences. Dispatch sits squarely between the two legacy approaches, aggressively capturing the strengths of each while shedding their baggage. The release model shapes a game's whole cultural footprint over time:
+      </p>
+
+      <svg viewBox="0 0 720 330" width="100%" role="img" aria-label="Line chart comparing community engagement over time for Day-One, Traditional Episodic, and Compressed Episodic release models" style="margin:4px 0 8px;">
+        <line x1="80" y1="30" x2="80" y2="290" stroke="var(--border)" stroke-width="1"/>
+        <line x1="80" y1="290" x2="690" y2="290" stroke="var(--border)" stroke-width="1"/>
+        <text x="80" y="20" fill="var(--ink-dim)" font-family="Inter,sans-serif" font-size="11" letter-spacing="1">COMMUNITY ENGAGEMENT</text>
+        <polyline fill="none" stroke="var(--red)" stroke-width="2.5" stroke-linejoin="round" points="80,43 202,147 324,233 446,259 568,267 690,269"/>
+        <polyline fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linejoin="round" points="80,165 202,212 324,233 446,186 568,228 690,212"/>
+        <polyline fill="none" stroke="var(--blue)" stroke-width="3.5" stroke-linejoin="round" points="80,69 202,61 324,77 446,173 568,191 690,202"/>
+        <g font-family="Inter,sans-serif" font-size="11" fill="var(--ink-dim)" text-anchor="middle">
+          <text x="80" y="308">Launch</text>
+          <text x="202" y="308">2 wk</text>
+          <text x="324" y="308">1 mo</text>
+          <text x="446" y="308">2 mo</text>
+          <text x="568" y="308">3 mo</text>
+          <text x="690" y="308">4 mo</text>
+        </g>
+      </svg>
+      <div class="chart-legend">
+        <span><i style="background:var(--blue)"></i> Compressed Episodic (Dispatch)</span>
+        <span><i style="background:var(--red)"></i> Day-One Drop</span>
+        <span><i style="background:var(--cyan)"></i> Traditional Episodic</span>
+      </div>
+
+      <h3>The Day-One Drop (The Binge Model)</h3>
+      <p>
+        The current industry standard treats narrative games like blockbuster films. Alan Wake 2 or Life is Strange: True Colors drops the entire story at launch.
+      </p>
+      <ul>
+        <li><strong>The appeal.</strong> Deep, uninterrupted immersion. You experience the complete emotional arc without artificial cliffhangers.</li>
+        <li><strong>The drawback.</strong> It demands a massive upfront marketing spend to capitalize on a tiny two-week window. Worse, narrative games are highly susceptible to streamer culture: once a popular creator plays through, the story is spoiled globally, and the cultural footprint vanishes almost immediately after launch week.</li>
+      </ul>
+
+      <h3>Traditional Episodic (The Telltale Model)</h3>
+      <p>
+        Releasing single episodes spaced months apart.
+      </p>
+      <ul>
+        <li><strong>The appeal.</strong> Studios could fund later episodes with revenue from earlier ones, and adapt to community feedback in real time.</li>
+        <li><strong>The drawback.</strong> Severe player fatigue. The momentum from Episode 1 completely evaporated by the time Episode 3 arrived four months later. Players forgot plot details, grew frustrated, and learned a new consumer behavior: wait a year and buy the "Complete Season" on an inevitable Steam sale.</li>
+      </ul>
+
+      <div class="callout">
+        <span class="callout-label">The Dispatch Sweet Spot</span>
+        <p>A one-week wait between episodes perfectly mirrors prestige HBO television. It is long enough to foster intense theorizing and fan art, yet short enough that players never lose the narrative thread or drift to competing titles.</p>
+      </div>
+
+      <figure>
+        <img src="images/dispatch-bar.png" alt="Two Dispatch characters in costume sharing a drink at a bar">
+        <figcaption>Beneath the logistics, the hook is character: a volatile roster you have to keep functional.</figcaption>
+      </figure>
+
+      <h2>The Hidden Costs: Why Doesn't Everyone Do This?</h2>
+      <p>
+        If this model prints money and sustains hype, why isn't every studio doing it? Because the trade-offs are absolutely brutal.
+      </p>
+      <p>
+        <strong>It requires a flawless live-ops pipeline.</strong> Four consecutive cross-platform updates demand flawless QA and deployment. Managing cross-episode save states, ensuring a subtle dialogue choice in Episode 2 properly triggers an animation in Episode 4, puts heavy pressure on certification and hotfix workflows. Imagine dealing with Sony and Microsoft certification windows every seven days. The studio effectively operated as a "live-service game for a month."
+      </p>
+      <p>
+        <strong>There is zero room for filler.</strong> The model relies on uniform episode quality. A single padded, mechanical, or boring weekly drop could collapse momentum and community sentiment before the next release.
+      </p>
+      <p>
+        <strong>Completeness is a strict prerequisite.</strong> Unlike traditional episodic models or Early Access, a compressed rollout is entirely live-ops rather than developmental. The game must be 100% feature-complete before Week 1. You cannot fund the ending with the beginning; the deployment gaps are used purely for stability patches, build certification, and community management.
+      </p>
+
+      <div class="callout">
+        <span class="callout-label">The Takeaway</span>
+        <p>Dispatch proved that player attention spans aren't shrinking, they just require the right cadence. The 7-day window is the golden ratio for narrative games: long enough to cultivate rich community interaction, yet short enough to keep players hooked until the credits roll.</p>
+      </div>
+    </div>
+
+    <a class="back-link" href="projects.html" style="margin:40px 0 0;">
+      <span class="fa-solid fa-arrow-left" aria-hidden="true"></span> Back to Projects
+    </a>
+  </article>
+
+  <footer class="site-foot">
+    <h2>Connect</h2>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/andrew-l-xuu/" target="_blank" aria-label="LinkedIn">
+        <span class="fa-brands fa-linkedin-in" aria-hidden="true"></span>
+      </a>
+      <a href="mailto:andrew.l.xuu@gmail.com" aria-label="Email Andrew Xu">
+        <span class="fa-solid fa-envelope" aria-hidden="true"></span>
+      </a>
+      <a href="https://github.com/andrewxuu" target="_blank" aria-label="GitHub">
+        <span class="fa-brands fa-github" aria-hidden="true"></span>
+      </a>
+      <a href="https://discord.com/users/377968184894160897" target="_blank" aria-label="Discord">
+        <span class="fa-brands fa-discord" aria-hidden="true"></span>
+      </a>
+    </div>
+    <p class="copyright">&copy; 2026 Andrew Xu. Built with HTML, CSS, and Bootstrap.</p>
+  </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('themeToggle');
+      var icon = document.getElementById('themeIcon');
+      var label = document.getElementById('themeLabel');
+      function sync() {
+        var dark = root.classList.contains('dark');
+        label.textContent = dark ? 'Light' : 'Dark';
+        icon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      }
+      sync();
+      btn.addEventListener('click', function () {
+        root.classList.toggle('dark');
+        try { localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light'); } catch (e) {}
+        sync();
+      });
+
+      var tl = document.getElementById('releaseTimeline');
+      if (tl) {
+        tl.classList.add('tl-ready');
+        if ('IntersectionObserver' in window) {
+          var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) { tl.classList.add('visible'); obs.disconnect(); }
+            });
+          }, { threshold: 0.2 });
+          obs.observe(tl);
+        } else {
+          tl.classList.add('visible');
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

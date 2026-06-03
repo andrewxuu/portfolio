@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Andrew Xu">
-  <meta name="description" content="Andrew Xu project showcase: games, prototypes, and QA reports.">
-  <title>Andrew Xu | Projects</title>
+  <meta name="description" content="Get in touch with Andrew Xu, Systems & Level Designer.">
+  <title>Andrew Xu | Contact</title>
 
   <script>
     (function () {
@@ -32,9 +32,9 @@
       <a class="brand" href="index.html">ANDREW XU</a>
       <div class="links">
         <a href="index.html">HOME</a>
-        <a class="active" aria-current="page" href="projects.html">PROJECTS</a>
+        <a href="projects.html">PROJECTS</a>
         <a href="aboutme.html">ABOUT</a>
-        <a href="contact.html">CONTACT</a>
+        <a class="active" aria-current="page" href="contact.html">CONTACT</a>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="margin-left:10px;">
           <span class="fa-solid fa-moon" id="themeIcon" aria-hidden="true"></span>
           <span id="themeLabel">Dark</span>
@@ -44,66 +44,33 @@
   </header>
 
   <main class="page">
-    <span class="page-kicker">Quest Log</span>
-    <h1 class="page-title">PROJECT <span>SHOWCASE</span></h1>
+    <span class="page-kicker">Send Message</span>
+    <h1 class="page-title">GET IN <span>TOUCH</span></h1>
 
-    <h2 class="sec-head">Games &amp; Prototypes</h2>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-      <div class="col">
-        <div class="p3-card">
-          <img src="images/babylon-hero.jpg" alt="A Journey to Babylon title art" style="height:220px;object-fit:cover;object-position:center;">
-          <div class="body">
-            <h3 class="title">A Journey to Babylon</h3>
-            <p class="text">Reviewed and revised in-game text for clarity, tone consistency, and player readability across UI and narrative elements. Ran 20 QA sessions to identify and resolve issues with visual clarity, input lag, and text accuracy.</p>
-            <div>
-              <span class="pill pill-line">20 Weeks</span>
-              <span class="pill pill-line">Unity</span>
-              <span class="pill pill-line">Designer &amp; Artist</span>
-            </div>
-            <a href="case-study.html" class="p3-btn">View Project &rarr;</a>
+    <div class="contact-form">
+      <div class="field">
+        <div class="group-label">Name <span class="req">(required)</span></div>
+        <div class="name-row">
+          <div class="field">
+            <label for="cf-first">First Name</label>
+            <input type="text" id="cf-first" autocomplete="given-name">
+          </div>
+          <div class="field">
+            <label for="cf-last">Last Name</label>
+            <input type="text" id="cf-last" autocomplete="family-name">
           </div>
         </div>
       </div>
-      <div class="col">
-        <div class="p3-card">
-          <img src="images/game.png" alt="Chefer-Me-Timbers screenshot">
-          <div class="body">
-            <h3 class="title">Chef-Me-Timbers!</h3>
-            <p class="text">Led 10+ playtests and tracked bugs and milestones in Jira to keep the team moving toward a stable release. Analyzed win-rates to spot and cut exploitative strategies, making the game fairer and more fun across skill levels.</p>
-            <div>
-              <span class="pill pill-line">8 Weeks</span>
-              <span class="pill pill-line">Card Game</span>
-              <span class="pill pill-line">Gameplay Designer</span>
-            </div>
-            <a href="case-study-chefer.html" class="p3-btn">View Project &rarr;</a>
-          </div>
-        </div>
+      <div class="field">
+        <label for="cf-email">Email <span class="req">(required)</span></label>
+        <input type="email" id="cf-email" autocomplete="email">
       </div>
-    </div>
-
-    <h2 class="sec-head">Design Case Studies</h2>
-    <div class="under-construction">
-      <div class="uc-icon"><span class="fa-solid fa-helmet-safety" aria-hidden="true"></span></div>
-      <h3 class="uc-title">Under Construction</h3>
-      <p class="uc-sub">Design case studies are in the works. Check back soon.</p>
-    </div>
-
-    <h2 class="sec-head">Research &amp; QA Reports</h2>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="p3-card">
-          <img src="images/dispatch-cover.png" alt="Dispatch cover art" style="height:220px;object-fit:cover;object-position:center top;">
-          <div class="body">
-            <h3 class="title">Dispatch: Delivery &amp; Strategy</h3>
-            <p class="text">A product and launch-strategy teardown of Dispatch (AdHoc Studio): how a compressed episodic rollout, system design, and live-ops production drove 1M+ units in 10 days.</p>
-            <div>
-              <span class="pill pill-line">Strategy</span>
-              <span class="pill pill-line">Live-Ops</span>
-            </div>
-            <a href="analysis-dispatch.html" class="p3-btn">View Report &rarr;</a>
-          </div>
-        </div>
+      <div class="field">
+        <label for="cf-message">Message <span class="req">(required)</span></label>
+        <textarea id="cf-message"></textarea>
       </div>
+      <button type="button" class="send-btn" id="cf-send">Send</button>
+      <p class="form-note" id="cf-note">This opens your email app with the message ready to send.</p>
     </div>
   </main>
 
@@ -131,6 +98,7 @@
     crossorigin="anonymous"></script>
   <script>
     (function () {
+      // ----- Theme toggle -----
       var root = document.documentElement;
       var btn = document.getElementById('themeToggle');
       var icon = document.getElementById('themeIcon');
@@ -145,6 +113,33 @@
         root.classList.toggle('dark');
         try { localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light'); } catch (e) {}
         sync();
+      });
+
+      // ----- Contact form -> mailto -----
+      var send = document.getElementById('cf-send');
+      var note = document.getElementById('cf-note');
+      send.addEventListener('click', function () {
+        var first = document.getElementById('cf-first').value.trim();
+        var last = document.getElementById('cf-last').value.trim();
+        var email = document.getElementById('cf-email').value.trim();
+        var message = document.getElementById('cf-message').value.trim();
+        var name = (first + ' ' + last).trim();
+
+        if (!first || !last || !email || !message) {
+          note.textContent = 'Please fill in your first name, last name, email, and a message.';
+          note.style.color = 'var(--red)';
+          return;
+        }
+
+        var subjectLine = 'Portfolio inquiry from ' + name;
+        var body = 'From: ' + name + ' (' + email + ')\n\n' + message;
+        var href = 'mailto:andrew.l.xuu@gmail.com'
+          + '?subject=' + encodeURIComponent(subjectLine)
+          + '&body=' + encodeURIComponent(body);
+
+        window.location.href = href;
+        note.textContent = 'Opening your email app...';
+        note.style.color = 'var(--ink-dim)';
       });
     })();
   </script>

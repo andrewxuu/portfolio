@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Andrew Xu">
+  <meta name="description" content="Case study: gameplay design, balance, and playtesting on Chef-Me-Timbers!, a cooperative pirate cooking card game.">
+  <title>Andrew Xu | Chef-Me-Timbers!</title>
+
+  <script>
+    (function () {
+      try { if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark'); } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">ANDREW XU</a>
+      <div class="links">
+        <a href="index.html">HOME</a>
+        <a class="active" aria-current="page" href="projects.html">PROJECTS</a>
+        <a href="aboutme.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="margin-left:10px;">
+          <span class="fa-solid fa-moon" id="themeIcon" aria-hidden="true"></span>
+          <span id="themeLabel">Dark</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <article class="article">
+    <a class="back-link" href="projects.html">
+      <span class="fa-solid fa-arrow-left" aria-hidden="true"></span> Back to Projects
+    </a>
+
+    <header class="article-head">
+      <span class="page-kicker">Game Project</span>
+      <h1 class="article-title">Chef-Me-<span>Timbers!</span></h1>
+
+      <div class="article-meta">
+        <div class="meta-item">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">Gameplay Designer</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Format</span>
+          <span class="meta-value">Co-op Card Game</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Team</span>
+          <span class="meta-value">5 Designers</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Duration</span>
+          <span class="meta-value">8 Weeks</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="article-body">
+
+      <div class="callout">
+        <span class="callout-label">Summary</span>
+        <p>Chef-Me-Timbers! is a cooperative 40-card pirate cooking game for 2–4 players, built by a five-person team for GDIM 129. The project ran 10+ playtests, developed a customer satisfaction scoring system, and used playtest data to find and patch exploitable customers and a game-breaking resource lock, turning a chaotic prototype into a readable, fair co-op experience.</p>
+      </div>
+
+      <h2>Overview</h2>
+      <p>
+        Players are a crew of pirate-chefs racing to satisfy demanding customers (sirens, krakens, hostile pirates, even Cthulhu) by assembling ingredients into dishes before the deck runs out or the customers lose patience. The design rests on three pillars: cooperation under a shared timer, hidden information that forces communication (players may only state one property of a card in their hand per turn), and dual-use cards where every ingredient is both a recipe component and a one-time ability.
+      </p>
+      <p>
+        The game pulls mechanics from titles the team studied closely: the dependent-communication tension of <em>Hanabi</em>, the offense-vs-defense risk decisions of <em>Slay the Spire</em>, the random boss-draw pressure of <em>Bloodborne: The Card Game</em>, and the cooperative-decline urgency of <em>Forbidden Island</em>. The core challenge was the gameplay layer: keeping the co-op loop tense without tipping into trivial or unwinnable.
+      </p>
+
+      <h2>The Problem</h2>
+      <p>
+        A co-op game lives or dies on balance and legibility. Early builds had both kinds of failure, and playtesting surfaced them fast:
+      </p>
+      <ul>
+        <li><strong>An exploitable customer.</strong> The Gentle Seagullmen would accept any food, which made them trivially easy and let groups coast. Playtest notes flagged this as needing a "patch," and the fix required 3 <em>prepared</em> items instead of any food.</li>
+        <li><strong>A hard-lock resource bug.</strong> Rum is crafted from Water + Sugarcane, and three different customers need it. In one session a player drew both Water cards and the crew soft-locked, leaving no one else able to craft Rum. This "Water Problem" felt like a bug, not a decision.</li>
+        <li><strong>No feeling of teamwork.</strong> Despite being co-op, early sessions played like solitaire in parallel, a core experience problem rather than just a tuning issue.</li>
+      </ul>
+
+      <h2>Process</h2>
+      <ul>
+        <li>Ran <strong>10+ playtests</strong> (including blind playtests with first-time players) and logged where groups stalled, misread cards, or broke the intended flow.</li>
+        <li>Developed the <strong>customer satisfaction system:</strong> customers start at 100 satisfaction, lose 25 per unsatisfied round, and leave at 0, giving the race a clear, trackable pressure curve within a 3–4 round window.</li>
+        <li>Shifted scoring from <strong>losing points to customers leaving</strong>, so players only ever gain score by genuinely satisfying a customer, a cleaner and less punishing feedback loop.</li>
+        <li>Identified the Seagullmen exploit and the Water hard-lock from playtest data and drove fixes for both.</li>
+        <li>Tracked bugs, rule ambiguities, and balance issues in <strong>Jira</strong> against milestones, so the five-person team always knew what was blocking a stable build.</li>
+      </ul>
+
+      <figure>
+        <img src="images/game.png" alt="Chef-Me-Timbers card layout or playtest setup">
+        <figcaption>Add a photo of the cards or a playtest session here.</figcaption>
+      </figure>
+
+      <h2>Key Findings from Playtesting</h2>
+      <p>
+        The most valuable feedback came from blind playtests, where first-time players consistently tripped on the same things. The recurring theme: what felt "intuitive" to the team was anything but. Major findings included:
+      </p>
+      <ul>
+        <li><strong>Color-coding misled players.</strong> People instinctively tried to match cards by color, so the team moved to an icon-based system (Eat / Cook / Use / Ability symbols on every card).</li>
+        <li><strong>Core rules weren't landing.</strong> Players missed the 3-card hand limit, got confused by crafting (Water + Sugarcane → Rum), and used "pick up from inventory" to feed customers instead of for player-to-player handoffs.</li>
+        <li><strong>Hazards were forgotten mid-game.</strong> The Barnacles hazard especially: some players assumed the whole deck was meant to be face-up and just flipped it over.</li>
+        <li><strong>Utility cards (Shiv, Coals) were ignored or misunderstood</strong>, pointing to the need for an always-on-table quick-reference card listing valid actions.</li>
+        <li><strong>Scoring had low visibility.</strong> Players weren't tracking points at all, which muddied balance reads.</li>
+        <li><strong>Games ran long</strong>, especially at 4 players, making the satisfaction window a candidate for tightening.</li>
+      </ul>
+
+      <h2>Results</h2>
+      <div class="result-strip">
+        <div class="result"><div class="r-num">10+</div><div class="r-lbl">Playtests Run</div></div>
+        <div class="result"><div class="r-num">40</div><div class="r-lbl">Card Game</div></div>
+        <div class="result"><div class="r-num">2–4</div><div class="r-lbl">Players</div></div>
+      </div>
+      <p>
+        Playtest data drove concrete fixes: the Seagullmen exploit was closed, the satisfaction system gave the game a readable pressure curve, and the move from color to iconography made the cards legible to first-time players. The blind-playtest findings became a prioritized list of rulebook and clarity fixes, and most of the late work was about making the "intuitive" things explicit. Tracking everything against milestones kept the five-person team aligned and shipped a stable, demoable build by the deadline.
+      </p>
+
+      <h2>Lessons Learned</h2>
+      <p>
+        Score visibility should have been a first-class design concern from day one. Players consistently lost track of points mid-game, which made balance feedback noisier than it needed to be; cleaner score tracking would have made the customer timers far faster to read and tune. Blind playtesting also paid off most when it happened early: almost every "obvious" rule turned out to need explicit text once a stranger sat down with the deck.
+      </p>
+    </div>
+
+    <a class="back-link" href="projects.html" style="margin:40px 0 0;">
+      <span class="fa-solid fa-arrow-left" aria-hidden="true"></span> Back to Projects
+    </a>
+  </article>
+
+  <footer class="site-foot">
+    <h2>Connect</h2>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/andrew-l-xuu/" target="_blank" aria-label="LinkedIn">
+        <span class="fa-brands fa-linkedin-in" aria-hidden="true"></span>
+      </a>
+      <a href="mailto:andrew.l.xuu@gmail.com" aria-label="Email Andrew Xu">
+        <span class="fa-solid fa-envelope" aria-hidden="true"></span>
+      </a>
+      <a href="https://github.com/andrewxuu" target="_blank" aria-label="GitHub">
+        <span class="fa-brands fa-github" aria-hidden="true"></span>
+      </a>
+      <a href="https://discord.com/users/377968184894160897" target="_blank" aria-label="Discord">
+        <span class="fa-brands fa-discord" aria-hidden="true"></span>
+      </a>
+    </div>
+    <p class="copyright">&copy; 2026 Andrew Xu. Built with HTML, CSS, and Bootstrap.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('themeToggle');
+      var icon = document.getElementById('themeIcon');
+      var label = document.getElementById('themeLabel');
+      function sync() {
+        var dark = root.classList.contains('dark');
+        label.textContent = dark ? 'Light' : 'Dark';
+        icon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      }
+      sync();
+      btn.addEventListener('click', function () {
+        root.classList.toggle('dark');
+        try { localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light'); } catch (e) {}
+        sync();
+      });
+    })();
+  </script>
+</body>
+</html>
