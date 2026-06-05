@@ -47,31 +47,47 @@
     <span class="page-kicker">Send Message</span>
     <h1 class="page-title">GET IN <span>TOUCH</span></h1>
 
-    <div class="contact-form">
+    <div data-fs-success class="form-note" style="display:none;">
+      Thanks! Your message has been sent.
+    </div>
+    <div data-fs-error class="form-note" style="color:var(--red);display:none;"></div>
+
+    <form class="contact-form" id="contact-form">
+      <input type="hidden" name="form-name" value="contact">
+
       <div class="field">
         <div class="group-label">Name <span class="req">(required)</span></div>
         <div class="name-row">
           <div class="field">
             <label for="cf-first">First Name</label>
-            <input type="text" id="cf-first" autocomplete="given-name">
+            <input type="text" id="cf-first" name="first-name" autocomplete="given-name"
+              data-fs-field required>
+            <span data-fs-error="first-name" class="form-note" style="color:var(--red);"></span>
           </div>
           <div class="field">
             <label for="cf-last">Last Name</label>
-            <input type="text" id="cf-last" autocomplete="family-name">
+            <input type="text" id="cf-last" name="last-name" autocomplete="family-name"
+              data-fs-field required>
+            <span data-fs-error="last-name" class="form-note" style="color:var(--red);"></span>
           </div>
         </div>
       </div>
+
       <div class="field">
         <label for="cf-email">Email <span class="req">(required)</span></label>
-        <input type="email" id="cf-email" autocomplete="email">
+        <input type="email" id="cf-email" name="email" autocomplete="email"
+          data-fs-field required>
+        <span data-fs-error="email" class="form-note" style="color:var(--red);"></span>
       </div>
+
       <div class="field">
         <label for="cf-message">Message <span class="req">(required)</span></label>
-        <textarea id="cf-message"></textarea>
+        <textarea id="cf-message" name="message" data-fs-field required></textarea>
+        <span data-fs-error="message" class="form-note" style="color:var(--red);"></span>
       </div>
-      <button type="button" class="send-btn" id="cf-send">Send</button>
-      <p class="form-note" id="cf-note">This opens your email app with the message ready to send.</p>
-    </div>
+
+      <button type="submit" class="send-btn" data-fs-submit-btn>Send</button>
+    </form>
   </main>
 
   <footer class="site-foot">
@@ -96,9 +112,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+
   <script>
     (function () {
-      // ----- Theme toggle -----
       var root = document.documentElement;
       var btn = document.getElementById('themeToggle');
       var icon = document.getElementById('themeIcon');
@@ -114,34 +130,13 @@
         try { localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light'); } catch (e) {}
         sync();
       });
-
-      // ----- Contact form -> mailto -----
-      var send = document.getElementById('cf-send');
-      var note = document.getElementById('cf-note');
-      send.addEventListener('click', function () {
-        var first = document.getElementById('cf-first').value.trim();
-        var last = document.getElementById('cf-last').value.trim();
-        var email = document.getElementById('cf-email').value.trim();
-        var message = document.getElementById('cf-message').value.trim();
-        var name = (first + ' ' + last).trim();
-
-        if (!first || !last || !email || !message) {
-          note.textContent = 'Please fill in your first name, last name, email, and a message.';
-          note.style.color = 'var(--red)';
-          return;
-        }
-
-        var subjectLine = 'Portfolio inquiry from ' + name;
-        var body = 'From: ' + name + ' (' + email + ')\n\n' + message;
-        var href = 'mailto:andrew.l.xuu@gmail.com'
-          + '?subject=' + encodeURIComponent(subjectLine)
-          + '&body=' + encodeURIComponent(body);
-
-        window.location.href = href;
-        note.textContent = 'Opening your email app...';
-        note.style.color = 'var(--ink-dim)';
-      });
     })();
   </script>
+
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#contact-form', formId: 'mlgkgjgy' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
