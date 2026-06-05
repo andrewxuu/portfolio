@@ -20,7 +20,7 @@
       --cream-2: #E0D9CF;
       --sage:    #A8BDB4;
       --ink:     #25211D;
-      --ink-dim: rgba(37,33,29,0.48);
+      --ink-dim: rgba(37,33,29,0.88);
       --border:  rgba(37,33,29,0.12);
       --bg:      #EDE8E1;
     }
@@ -43,15 +43,15 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-    .rc-nav .brand { font-size: 11px; font-weight: 400; letter-spacing: 5px; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+    .rc-nav .brand { font-size: 13px; font-weight: 400; letter-spacing: 5px; text-transform: uppercase; color: var(--ink); text-decoration: none; }
     .rc-nav .links { display: flex; gap: 32px; margin-left: auto; align-items: center; }
-    .rc-nav .links a { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
+    .rc-nav .links a { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
     .rc-nav .links a:hover, .rc-nav .links a.active { color: var(--ink); }
 
     /* Back */
     .rc-back {
       display: inline-flex; align-items: center; gap: 9px;
-      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
       color: var(--ink-dim); text-decoration: none;
       padding: 36px 64px 0; transition: color 0.2s;
     }
@@ -73,15 +73,15 @@
     .rc-stat { flex: 1; max-width: 220px; padding: 44px 24px; text-align: center; border-right: 1px solid var(--border); }
     .rc-stat:last-child { border-right: none; }
     .rc-stat .num { font-size: 52px; font-weight: 300; color: var(--ink); display: block; line-height: 1; margin-bottom: 10px; }
-    .rc-stat .lbl { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink); font-weight: 400; }
+    .rc-stat .lbl { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink); font-weight: 400; }
 
     /* Events */
     .rc-events { max-width: 980px; margin: 0 auto; padding: 0 52px 90px; }
     .rc-event { padding: 88px 0; border-bottom: 1px solid var(--border); }
     .rc-event:last-child { border-bottom: none; }
     .rc-event-head { text-align: center; margin-bottom: 56px; }
-    .rc-event-num { font-size: 12px; letter-spacing: 6px; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 16px; }
-    .rc-event-season { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink); font-weight: 400; display: block; margin-bottom: 8px; }
+    .rc-event-num { font-size: 13px; letter-spacing: 6px; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 16px; }
+    .rc-event-season { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink); font-weight: 400; display: block; margin-bottom: 8px; }
     .rc-event-title { font-size: clamp(38px, 6vw, 66px); font-weight: 300; font-style: italic; letter-spacing: 1px; color: var(--ink); margin-bottom: 18px; line-height: 1.1; }
     .rc-event-meta { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink); font-weight: 400; }
     .rc-event-meta span { margin: 0 10px; }
@@ -89,7 +89,7 @@
     .rc-event-desc { font-size: 17px; line-height: 1.95; color: var(--ink-dim); margin-bottom: 32px; }
 
     /* Menu */
-    .rc-menu-label { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--ink); font-weight: 500; display: block; margin-bottom: 14px; }
+    .rc-menu-label { font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: var(--ink); font-weight: 500; display: block; margin-bottom: 14px; }
     .rc-menu-list { list-style: none; }
     .rc-menu-list li { font-size: 20px; font-weight: 300; font-style: italic; color: var(--ink); padding: 11px 0; border-bottom: 1px solid var(--border); }
     .rc-menu-list li:first-child { border-top: 1px solid var(--border); }
@@ -100,7 +100,6 @@
       border-radius: 2px;
       overflow: hidden;
       background: var(--cream-2);
-      /* Use average portrait ratio 3:4 */
       aspect-ratio: 3 / 4;
     }
     .ecar-track {
@@ -129,7 +128,7 @@
       border: 1px solid var(--border);
     }
     .rc-ph i { font-size: 18px; color: var(--ink-dim); opacity: 0.4; }
-    .rc-ph span { font-size: 12px; letter-spacing: 1px; color: var(--ink); font-weight: 400; }
+    .rc-ph span { font-size: 13px; letter-spacing: 1px; color: var(--ink); font-weight: 400; }
     .ecar-btn {
       position: absolute; top: 50%; transform: translateY(-50%);
       background: rgba(237,232,225,0.85); border: 1px solid var(--border);
@@ -154,13 +153,13 @@
     /* Marquee */
     .rc-photo-spread { padding: 72px 0 90px; overflow: hidden; border-top: 1px solid var(--border); }
     .rc-spread-header { text-align: center; margin-bottom: 44px; }
-    .rc-spread-title { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--ink-dim); }
+    .rc-spread-title { font-size: 13px; letter-spacing: 5px; text-transform: uppercase; color: var(--ink-dim); }
     .rc-marquee-container { position: relative; width: 100%; display: flex; overflow: hidden; }
     .rc-marquee-container::before,
     .rc-marquee-container::after { content: ""; position: absolute; top: 0; bottom: 0; width: 12vw; z-index: 10; pointer-events: none; }
     .rc-marquee-container::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
     .rc-marquee-container::after  { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
-    .rc-marquee-track { display: flex; gap: 16px; width: max-content; animation: marquee-scroll 40s linear infinite; }
+    .rc-marquee-track { display: flex; gap: 16px; width: max-content; animation: marquee-scroll 90s linear infinite; }
     .rc-marquee-track:hover { animation-play-state: paused; }
     .rc-marquee-item { width: 210px; height: 280px; flex-shrink: 0; object-fit: cover; cursor: zoom-in; border-radius: 1px; }
     @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 8px)); } }
@@ -170,7 +169,7 @@
     .rc-footer .social { display: flex; justify-content: center; gap: 28px; margin-bottom: 22px; }
     .rc-footer .social a { font-size: 17px; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
     .rc-footer .social a:hover { color: var(--ink); }
-    .rc-footer .copy { font-size: 10px; letter-spacing: 3px; color: var(--ink-dim); text-transform: uppercase; }
+    .rc-footer .copy { font-size: 13px; letter-spacing: 3px; color: var(--ink-dim); text-transform: uppercase; }
 
     /* Lightbox */
     .lb-overlay {
@@ -191,8 +190,7 @@
     .lb-nav:hover { background: rgba(237,232,225,0.3); }
     .lb-nav.lb-prev { left: -60px; }
     .lb-nav.lb-next { right: -60px; }
-    .lb-counter { position: absolute; bottom: -36px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.45); }
-
+    .lb-counter { position: absolute; bottom: -36px; left: 50%; transform: translateX(-50%); font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
 
     /* People section */
     .rc-people {
@@ -217,7 +215,6 @@
       transition: opacity 0.25s ease;
     }
     .rc-people-grid img:hover { opacity: 0.88; }
-    /* make first image span 2 columns for visual punch */
     .rc-people-grid img:first-child {
       grid-column: span 2;
       aspect-ratio: 8/5;
@@ -243,17 +240,6 @@
 </head>
 <body>
 
-  <nav class="rc-nav" aria-label="Main navigation">
-    <a class="brand" href="index.html">Andrew Xu</a>
-    <div class="links">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a class="active" href="supper-club.html">Supper Club @ UCI</a>
-      <a href="aboutme.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </nav>
-
   <a class="rc-back" href="aboutme.html">
     <span class="fa-solid fa-arrow-left" aria-hidden="true"></span> Back to About
   </a>
@@ -266,7 +252,6 @@
     </p>
   </header>
 
-  <!-- Marquee -->
   <section class="rc-photo-spread">
     <header class="rc-spread-header">
       <h2 class="rc-spread-title">Moments from the Series</h2>
@@ -274,8 +259,8 @@
     <div class="rc-marquee-container">
       <div class="rc-marquee-track">
         <img src="images/cafe-matcha-pound-cake-plates.jpg"  alt="Matcha pound cake"        class="rc-marquee-item">
-        <img src="images/curry-guests-living-room-hires.jpg"       alt="Curry night guests"       class="rc-marquee-item">
-        <img src="images/cafe-table-spread.jpg"              alt="Café table spread"        class="rc-marquee-item">
+        <img src="images/curry-guests-living-room-hires.jpg" alt="Curry night guests"       class="rc-marquee-item">
+        <img src="images/cafe-table-spread.jpg"              alt="Cafe table spread"        class="rc-marquee-item">
         <img src="images/curry-plating-service.jpg"          alt="Curry plating service"    class="rc-marquee-item">
         <img src="images/cafe-banana-bread-board.jpg"        alt="Banana bread"             class="rc-marquee-item">
         <img src="images/autumn-fennel-salad.jpg"            alt="Fennel salad"             class="rc-marquee-item">
@@ -284,19 +269,19 @@
         <img src="images/cafe-basque-cheesecake.jpg"         alt="Basque cheesecake"        class="rc-marquee-item">
         <img src="images/curry-kitchen-crowd-1.jpg"          alt="Kitchen crowd"            class="rc-marquee-item">
         <img src="images/autumn-pasta-plating.jpg"           alt="Pasta plating"            class="rc-marquee-item">
-        <img src="images/autumn-pasta-tasting.jpg"            alt="Pasta torch"         class="rc-marquee-item">
-        <img src="images/autumn-pasta-torch.jpg"          alt="Pasta tasting"       class="rc-marquee-item">
+        <img src="images/autumn-pasta-tasting.jpg"           alt="Pasta tasting"            class="rc-marquee-item">
+        <img src="images/autumn-pasta-torch.jpg"             alt="Pasta torch"              class="rc-marquee-item">
         <img src="images/curry-guests-thumbsup.jpg"          alt="Happy guests"             class="rc-marquee-item">
-        <img src="images/autumn-sweet-potato-brulee.jpg"     alt="Sweet potato brûlée"     class="rc-marquee-item">
+        <img src="images/autumn-sweet-potato-brulee.jpg"     alt="Sweet potato brulee"      class="rc-marquee-item">
         <img src="images/cafe-matcha-tiramisu.jpg"           alt="Matcha tiramisu"          class="rc-marquee-item">
         <img src="images/curry-kitchen-crowd-2.jpg"          alt="Kitchen energy"           class="rc-marquee-item">
         <img src="images/autumn-dips-spread.jpg"             alt="Dips spread"              class="rc-marquee-item">
-        <img src="images/cafe-guests-holding-desserts.jpg"   alt="Café guests"              class="rc-marquee-item">
+        <img src="images/cafe-guests-holding-desserts.jpg"   alt="Cafe guests"              class="rc-marquee-item">
         <img src="images/bbq-table-spread.jpg"               alt="BBQ table spread"         class="rc-marquee-item">
         <!-- duplicate for seamless loop -->
         <img src="images/cafe-matcha-pound-cake-plates.jpg"  alt="Matcha pound cake"        class="rc-marquee-item">
-        <img src="images/curry-guests-living-room-hires.jpg"       alt="Curry night guests"       class="rc-marquee-item">
-        <img src="images/cafe-table-spread.jpg"              alt="Café table spread"        class="rc-marquee-item">
+        <img src="images/curry-guests-living-room-hires.jpg" alt="Curry night guests"       class="rc-marquee-item">
+        <img src="images/cafe-table-spread.jpg"              alt="Cafe table spread"        class="rc-marquee-item">
         <img src="images/curry-plating-service.jpg"          alt="Curry plating service"    class="rc-marquee-item">
         <img src="images/cafe-banana-bread-board.jpg"        alt="Banana bread"             class="rc-marquee-item">
         <img src="images/autumn-fennel-salad.jpg"            alt="Fennel salad"             class="rc-marquee-item">
@@ -305,22 +290,22 @@
         <img src="images/cafe-basque-cheesecake.jpg"         alt="Basque cheesecake"        class="rc-marquee-item">
         <img src="images/curry-kitchen-crowd-1.jpg"          alt="Kitchen crowd"            class="rc-marquee-item">
         <img src="images/autumn-pasta-plating.jpg"           alt="Pasta plating"            class="rc-marquee-item">
-        <img src="images/autumn-pasta-tasting.jpg"            alt="Pasta torch"         class="rc-marquee-item">
-        <img src="images/autumn-pasta-torch.jpg"          alt="Pasta tasting"       class="rc-marquee-item">
+        <img src="images/autumn-pasta-tasting.jpg"           alt="Pasta tasting"            class="rc-marquee-item">
+        <img src="images/autumn-pasta-torch.jpg"             alt="Pasta torch"              class="rc-marquee-item">
         <img src="images/curry-guests-thumbsup.jpg"          alt="Happy guests"             class="rc-marquee-item">
-        <img src="images/autumn-sweet-potato-brulee.jpg"     alt="Sweet potato brûlée"     class="rc-marquee-item">
+        <img src="images/autumn-sweet-potato-brulee.jpg"     alt="Sweet potato brulee"      class="rc-marquee-item">
         <img src="images/cafe-matcha-tiramisu.jpg"           alt="Matcha tiramisu"          class="rc-marquee-item">
         <img src="images/curry-kitchen-crowd-2.jpg"          alt="Kitchen energy"           class="rc-marquee-item">
         <img src="images/autumn-dips-spread.jpg"             alt="Dips spread"              class="rc-marquee-item">
-        <img src="images/cafe-guests-holding-desserts.jpg"   alt="Café guests"              class="rc-marquee-item">
+        <img src="images/cafe-guests-holding-desserts.jpg"   alt="Cafe guests"              class="rc-marquee-item">
         <img src="images/bbq-table-spread.jpg"               alt="BBQ table spread"         class="rc-marquee-item">
       </div>
     </div>
   </section>
 
   <section class="rc-intro">
-    <p>Four events. Four different concepts. One team. <br> 
-      Driven by the goal of uniting people through food, <br> 
+    <p>Four events. Four different concepts. One team. <br>
+      Driven by the goal of uniting people through food, <br>
       The Supper Club at UCI was an exercise in turning a good idea into a real experience, from planning the menu and coordinating grocery runs to organizing prep and making sure service ran clean.</p>
   </section>
 
@@ -373,14 +358,14 @@
       </header>
       <div class="rc-event-body">
         <div>
-          <p class="rc-event-desc">The most ambitious menu of the four. A multi-course sit-down dinner built around seasonal ingredients, from dry aged duck to sweet potato crème brûlée. Menu planning, grocery coordination, and prep team organization all came together for one night.</p>
+          <p class="rc-event-desc">The most ambitious menu of the four. A multi-course sit-down dinner built around seasonal ingredients, from dry aged duck to sweet potato creme brulee. Menu planning, grocery coordination, and prep team organization all came together for one night.</p>
           <span class="rc-menu-label">Menu</span>
           <ul class="rc-menu-list">
             <li>Fennel salad</li>
             <li>Three dips with baguettes</li>
             <li>Butternut squash pasta</li>
             <li>Dry aged duck</li>
-            <li>Sweet potato crème brûlée</li>
+            <li>Sweet potato creme brulee</li>
           </ul>
         </div>
         <div class="event-carousel" id="ecar-02">
@@ -388,10 +373,10 @@
             <div class="ecar-slide"><img src="images/autumn-fennel-salad.jpg"        alt="Fennel salad plated on black plates"></div>
             <div class="ecar-slide"><img src="images/autumn-dips-spread.jpg"         alt="Three dips with baguettes on wooden boards"></div>
             <div class="ecar-slide"><img src="images/autumn-pasta-plating.jpg"       alt="Butternut squash pasta being plated"></div>
-            <div class="ecar-slide"><img src="images/autumn-pasta-tasting.jpg"          alt="Torch finishing the butternut squash pasta"></div>
+            <div class="ecar-slide"><img src="images/autumn-pasta-tasting.jpg"       alt="Torch finishing the butternut squash pasta"></div>
             <div class="ecar-slide"><img src="images/autumn-duck-resting.jpg"        alt="Dry aged duck legs resting on cutting board"></div>
             <div class="ecar-slide"><img src="images/autumn-duck-plated.jpg"         alt="Sliced dry aged duck with fennel fronds"></div>
-            <div class="ecar-slide"><img src="images/autumn-sweet-potato-brulee.jpg" alt="Sweet potato crème brûlée with candied nuts"></div>
+            <div class="ecar-slide"><img src="images/autumn-sweet-potato-brulee.jpg" alt="Sweet potato creme brulee with candied nuts"></div>
           </div>
           <button class="ecar-btn prev" data-car="ecar-02" data-dir="-1" aria-label="Prev"><i class="fa-solid fa-chevron-left"></i></button>
           <button class="ecar-btn next" data-car="ecar-02" data-dir="1"  aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
@@ -410,7 +395,7 @@
       </header>
       <div class="rc-event-body">
         <div>
-          <p class="rc-event-desc">A winter dinner built around the warmth of Japanese comfort food. Fifty students gathered for beef and vegan curry, house-made soba, and vegetable tempura — a focused menu that leaned into the season. A smaller guest list meant tighter execution and a more intimate room.</p>
+          <p class="rc-event-desc">A winter dinner built around the warmth of Japanese comfort food. Fifty students gathered for beef and vegan curry, house-made soba, and vegetable tempura, a focused menu that leaned into the season. By thoughtfully planning our ingredients, we were able to accommodate an expanded guest list.</p>
           <span class="rc-menu-label">Menu</span>
           <ul class="rc-menu-list">
             <li>Beef Japanese Curry</li>
@@ -438,11 +423,11 @@
         <span class="rc-event-season">Spring 2025</span>
         <span class="rc-event-num">04</span>
         <h2 class="rc-event-title">Dawn Way Cafe</h2>
-        <p class="rc-event-meta"><span>40 Guests</span>&middot;<span>Café Style</span></p>
+        <p class="rc-event-meta"><span>40 Guests</span>&middot;<span>Cafe Style</span></p>
       </header>
       <div class="rc-event-body">
         <div>
-          <p class="rc-event-desc">The final event took a café format: a relaxed, drop-in experience for 40 students to eat, hang out, and stay as long as they wanted. After three events, the logistics were smoother and the team was in sync. The café felt like the series finding its stride.</p>
+          <p class="rc-event-desc">The final event took a cafe format: a relaxed, drop-in experience for 40 students to eat, hang out, and stay as long as they wanted. After three events, the logistics were smoother and the team was in sync. The cafe felt like the series finding its stride.</p>
           <span class="rc-menu-label">Menu</span>
           <ul class="rc-menu-list">
             <li>Brown Butter Banana Bread</li>
@@ -456,9 +441,9 @@
           <div class="ecar-track">
             <div class="ecar-slide"><img src="images/cafe-matcha-pound-cake-plates.jpg" alt="Matcha pound cake with strawberries and chamomile"></div>
             <div class="ecar-slide"><img src="images/cafe-basque-cheesecake.jpg"         alt="Basque cheesecake slice with strawberry sauce"></div>
-            <div class="ecar-slide"><img src="images/cafe-matcha-tiramisu.jpg"            alt="Matcha tiramisu slice with strawberry garnish"></div>
-            <div class="ecar-slide"><img src="images/cafe-banana-bread-board.jpg"         alt="Brown butter banana bread on wooden cutting board"></div>
-            <div class="ecar-slide"><img src="images/cafe-table-spread.jpg"               alt="Café table spread with matcha bowls and french press"></div>
+            <div class="ecar-slide"><img src="images/cafe-matcha-tiramisu.jpg"           alt="Matcha tiramisu slice with strawberry garnish"></div>
+            <div class="ecar-slide"><img src="images/cafe-banana-bread-board.jpg"        alt="Brown butter banana bread on wooden cutting board"></div>
+            <div class="ecar-slide"><img src="images/cafe-table-spread.jpg"              alt="Cafe table spread with matcha bowls and french press"></div>
           </div>
           <button class="ecar-btn prev" data-car="ecar-04" data-dir="-1" aria-label="Prev"><i class="fa-solid fa-chevron-left"></i></button>
           <button class="ecar-btn next" data-car="ecar-04" data-dir="1"  aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
@@ -469,23 +454,21 @@
 
   </main>
 
-
-
-  <!-- ===== PEOPLE ===== -->
+  <!-- PEOPLE -->
   <section class="rc-people">
     <header class="rc-spread-header">
       <h2 class="rc-spread-title">The People</h2>
     </header>
     <div class="rc-people-grid">
       <img src="images/curry-guests-living-room-hires.jpg"   alt="Curry night guests gathered in the living room">
-      <img src="images/autumn-pasta-torch.jpg"              alt="Guest leaning in to taste butternut squash pasta">
-      <img src="images/curry-plating-service.jpg"      alt="Team plating curry for a full house">
-      <img src="images/curry-guests-rooftop.jpg"       alt="Guests eating on the rooftop at curry night">
-      <img src="images/curry-kitchen-crowd-1.jpg"      alt="Crowd gathering in the kitchen before service">
-      <img src="images/curry-kitchen-crowd-2.jpg"      alt="Kitchen crowd before service begins">
-      <img src="images/curry-guests-thumbsup.jpg"      alt="Three guests giving thumbs up after the meal">
-      <img src="images/bbq-table-spread.jpg"           alt="BBQ night table with fruit and flowers">
-      <img src="images/cafe-guests-holding-desserts.jpg" alt="Guests holding their café dessert plates">
+      <img src="images/autumn-pasta-torch.jpg"               alt="Guest leaning in to taste butternut squash pasta">
+      <img src="images/curry-plating-service.jpg"            alt="Team plating curry for a full house">
+      <img src="images/curry-guests-rooftop.jpg"             alt="Guests eating on the rooftop at curry night">
+      <img src="images/curry-kitchen-crowd-1.jpg"            alt="Crowd gathering in the kitchen before service">
+      <img src="images/curry-kitchen-crowd-2.jpg"            alt="Kitchen crowd before service begins">
+      <img src="images/curry-guests-thumbsup.jpg"            alt="Three guests giving thumbs up after the meal">
+      <img src="images/bbq-table-spread.jpg"                 alt="BBQ night table with fruit and flowers">
+      <img src="images/cafe-guests-holding-desserts.jpg"     alt="Guests holding their cafe dessert plates">
     </div>
   </section>
 
@@ -512,55 +495,55 @@
   <script>
   document.addEventListener("DOMContentLoaded", function () {
 
-    // ── Per-event carousels ──────────────────────────────────────────────
-    // State keyed by carousel id
-    const cars = {};
+    // Per-event carousels
+    var cars = {};
 
-    document.querySelectorAll('.event-carousel').forEach(car => {
-      const id    = car.id;
-      const track = car.querySelector('.ecar-track');
-      const slides = track.querySelectorAll('.ecar-slide');
-      const dotsEl = document.getElementById(id + '-dots');
-      cars[id] = { idx: 0, total: slides.length, track, dotsEl };
+    document.querySelectorAll('.event-carousel').forEach(function(car) {
+      var id     = car.id;
+      var track  = car.querySelector('.ecar-track');
+      var slides = track.querySelectorAll('.ecar-slide');
+      var dotsEl = document.getElementById(id + '-dots');
+      cars[id] = { idx: 0, total: slides.length, track: track, dotsEl: dotsEl };
 
-      // Build dots
-      slides.forEach((_, i) => {
-        const d = document.createElement('button');
+      slides.forEach(function(_, i) {
+        var d = document.createElement('button');
         d.className = 'ecar-dot' + (i === 0 ? ' active' : '');
-        d.addEventListener('click', () => carGo(id, i));
+        d.addEventListener('click', function() { carGo(id, i); });
         dotsEl.appendChild(d);
       });
     });
 
     function carGo(id, idx) {
-      const c = cars[id];
+      var c = cars[id];
       c.idx = (idx + c.total) % c.total;
-      c.track.style.transform = `translateX(-${c.idx * 100}%)`;
-      c.dotsEl.querySelectorAll('.ecar-dot').forEach((d, i) => d.classList.toggle('active', i === c.idx));
+      c.track.style.transform = 'translateX(-' + (c.idx * 100) + '%)';
+      c.dotsEl.querySelectorAll('.ecar-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === c.idx);
+      });
     }
 
-    // Wire buttons via data attributes — no inline onclick needed
-    document.querySelectorAll('.ecar-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id  = btn.dataset.car;
-        const dir = parseInt(btn.dataset.dir, 10);
+    document.querySelectorAll('.ecar-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var id  = btn.dataset.car;
+        var dir = parseInt(btn.dataset.dir, 10);
         carGo(id, cars[id].idx + dir);
       });
     });
 
-    // ── Lightbox ─────────────────────────────────────────────────────────
-    const lb        = document.getElementById('lb');
-    const lbImg     = document.getElementById('lbImg');
-    const lbCounter = document.getElementById('lbCounter');
-    let lbImages = [];
-    let lbIdx    = 0;
+    // Lightbox
+    var lb        = document.getElementById('lb');
+    var lbImg     = document.getElementById('lbImg');
+    var lbCounter = document.getElementById('lbCounter');
+    var lbImages  = [];
+    var lbIdx     = 0;
 
-    // Collect all real images (carousels + marquee), dedup by src
-    document.querySelectorAll('.event-carousel .ecar-slide img, img.rc-marquee-item, .rc-people-grid img').forEach(img => {
-      if (!lbImages.find(x => x.src === img.src)) {
+    document.querySelectorAll('.event-carousel .ecar-slide img, img.rc-marquee-item, .rc-people-grid img').forEach(function(img) {
+      if (!lbImages.find(function(x) { return x.src === img.src; })) {
         lbImages.push({ src: img.src, alt: img.alt || '' });
       }
-      img.addEventListener('click', () => openLb(lbImages.findIndex(x => x.src === img.src)));
+      img.addEventListener('click', function() {
+        openLb(lbImages.findIndex(function(x) { return x.src === img.src; }));
+      });
     });
 
     function openLb(idx) {
@@ -574,22 +557,22 @@
     function closeLb() {
       lb.classList.remove('open');
       document.body.style.overflow = '';
-      setTimeout(() => { lbImg.src = ''; }, 300);
+      setTimeout(function() { lbImg.src = ''; }, 300);
     }
     function lbMove(dir) { openLb(lbIdx + dir); }
 
     document.getElementById('lbClose').addEventListener('click', closeLb);
-    document.getElementById('lbPrev').addEventListener('click', () => lbMove(-1));
-    document.getElementById('lbNext').addEventListener('click', () => lbMove(1));
-    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
-    document.addEventListener('keydown', e => {
+    document.getElementById('lbPrev').addEventListener('click', function() { lbMove(-1); });
+    document.getElementById('lbNext').addEventListener('click', function() { lbMove(1); });
+    lb.addEventListener('click', function(e) { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', function(e) {
       if (!lb.classList.contains('open')) return;
       if (e.key === 'ArrowRight') lbMove(1);
       if (e.key === 'ArrowLeft')  lbMove(-1);
       if (e.key === 'Escape')     closeLb();
     });
 
-  }); // end DOMContentLoaded
+  });
   </script>
 
 </body>
