@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Andrew Xu">
+  <meta name="description" content="Case study: Snow Peak, a cozy 3D camping RPG built in Unity.">
+  <title>Andrew Xu | Snow Peak</title>
+
+  <script>
+    (function () {
+      try { if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark'); } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">ANDREW XU</a>
+      <div class="links">
+        <a href="index.html">HOME</a>
+        <a class="active" aria-current="page" href="projects.html">PROJECTS</a>
+        <a href="aboutme.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="margin-left:10px;">
+          <span class="fa-solid fa-moon" id="themeIcon" aria-hidden="true"></span>
+          <span id="themeLabel">Dark</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <article class="article">
+    <a class="back-link" href="projects.html">
+      <span class="fa-solid fa-arrow-left" aria-hidden="true"></span> Back to Projects
+    </a>
+
+    <header class="article-head">
+      <span class="page-kicker">Game Project</span>
+      <h1 class="article-title">Snow <span>Peak</span></h1>
+
+      <div class="article-meta">
+        <div class="meta-item">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">Solo Developer</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Engine</span>
+          <span class="meta-value">Unity</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Genre</span>
+          <span class="meta-value">Cozy Camping RPG</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Status</span>
+          <span class="meta-value">In Development</span>
+        </div>
+      </div>
+    </header>
+
+    <img class="article-hero" src="images/snow_cover.png" alt="Snow Peak cover art">
+
+    <div class="article-body">
+
+      <div class="callout">
+        <span class="callout-label">Summary</span>
+        <p>Snow Peak is a cozy 3D camping RPG where dual survival meters — hunger and cold — demand simultaneous attention across three in-game nights of escalating difficulty. Players forage, craft shelter, and tend the campfire before nightfall, balancing short-term needs against long-term resource investments. No combat. Tension comes entirely from planning.</p>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin:0 0 8px;">
+        <a class="p3-btn" href="https://andrewxuu.itch.io/snow-peak-milestone-3" target="_blank" rel="noopener noreferrer" style="margin:0;">Play on itch.io &rarr;</a>
+      </div>
+
+      <h2>Overview</h2>
+      <p>
+        Snow Peak is built around a simple but strategically layered loop: explore by day, survive by night. Each morning the player sets out from the campsite to gather food (berries, mushrooms) and raw materials (wood, rocks) scattered through a single forested scene. Those materials can be used to upgrade shelter quality or refuel the campfire, both of which reduce the cold damage taken when night falls.
+      </p>
+      <p>
+        The game takes its genre cues from survival and crafting games where resource scarcity forces meaningful trade-offs each cycle. The cozy tone — low-poly stylized 3D, soft shadows, gentle lo-fi music — keeps the difficulty accessible, while the escalating meter rates across three nights ensure the experience deepens over time. Surviving all three nights is the win condition; health hitting zero ends the run.
+      </p>
+
+      <h2>Gameplay Loop</h2>
+      <p>
+        Each day begins at the campsite at dawn and follows the same structure:
+      </p>
+      <ul>
+        <li><strong>Explore.</strong> The player roams the campsite perimeter collecting food items and raw materials placed throughout the environment.</li>
+        <li><strong>Build.</strong> Gathered materials are used at the campfire base to upgrade shelter quality or refuel the fire. Upgrading shelter visually changes the campfire prefab and increases its warmth radius.</li>
+        <li><strong>Survive the night.</strong> When the day timer expires, the scene darkens and survival checks run automatically. If the food slot count is zero, the hunger bar depletes. If shelter quality is insufficient for that night's index (1–3), the cold bar depletes.</li>
+        <li><strong>Repeat.</strong> The loop runs across three nights, with meter drain rates escalating each cycle.</li>
+      </ul>
+
+      <h2>Mechanics</h2>
+      <p>
+        The vertical slice covers the full core loop with the following systems in place:
+      </p>
+      <ul>
+        <li><strong>Movement and interaction.</strong> Third-person WASD/arrow key movement with mouse camera rotation. An interaction prompt appears when the player is in range of a resource or the campfire base, and pressing E triggers a gathering or crafting animation.</li>
+        <li><strong>Resource gathering and inventory.</strong> Gathering adds items to internal inventory slots and updates the item count on the HUD.</li>
+        <li><strong>Crafting and shelter upgrades.</strong> Pressing C at the campfire opens the Crafting Menu and pauses the in-game timer. Players consume materials to upgrade shelter state or refuel the fire.</li>
+        <li><strong>Nightfall survival checks.</strong> Automated at the night flag: hunger and cold bars deplete based on food count and shelter quality respectively. The campfire dims or brightens visually to give immediate feedback on shelter state.</li>
+      </ul>
+
+      <h2>Technical Approach</h2>
+      <p>
+        Two Unity systems are doing the heavy lifting under the hood:
+      </p>
+      <ul>
+        <li><strong>Unity Animator.</strong> Manages the character's idle, walk, and gather animations based on player movement and interaction state. Keeping animation logic separate from the player script makes it straightforward to adjust animations without touching gameplay code.</li>
+        <li><strong>VFX Graph campfire.</strong> The campfire effect is built in three layers: a base flame, rising smoke, and floating embers. The fire's brightness scales dynamically with shelter quality — a neglected fire looks dim, a well-maintained one glows bright — giving the player a constant visual read on their survival standing without needing to open a menu.</li>
+      </ul>
+
+      <h2>Aesthetic Direction</h2>
+      <p>
+        Low-poly stylized 3D with soft shadows and a third-person perspective. The overall mood is cozy and inviting: the kind of game you can sit with. Inspired by Pokopia, Animal Crossing, and Stardew Valley.
+      </p>
+
+      <h2>Scope &amp; What's Excluded</h2>
+      <p>
+        The vertical slice is deliberately focused. The following features are scoped out of this milestone and would be considered for later development:
+      </p>
+      <ul>
+        <li>Trader NPCs and dialogue systems</li>
+        <li>Multiple biomes and procedural terrain generation</li>
+        <li>Tool progression (upgrading axes or pickaxes)</li>
+        <li>Dynamic weather events and seasonal progression</li>
+      </ul>
+
+    </div>
+
+    <a class="back-link" href="projects.html" style="margin:40px 0 0;">
+      <span class="fa-solid fa-arrow-left" aria-hidden="true"></span> Back to Projects
+    </a>
+  </article>
+
+  <footer class="site-foot">
+    <h2>Connect</h2>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/andrew-l-xuu/" target="_blank" aria-label="LinkedIn">
+        <span class="fa-brands fa-linkedin-in" aria-hidden="true"></span>
+      </a>
+      <a href="mailto:andrew.l.xuu@gmail.com" aria-label="Email Andrew Xu">
+        <span class="fa-solid fa-envelope" aria-hidden="true"></span>
+      </a>
+      <a href="https://github.com/andrewxuu" target="_blank" aria-label="GitHub">
+        <span class="fa-brands fa-github" aria-hidden="true"></span>
+      </a>
+      <a href="https://discord.com/users/377968184894160897" target="_blank" aria-label="Discord">
+        <span class="fa-brands fa-discord" aria-hidden="true"></span>
+      </a>
+    </div>
+    <p class="copyright">&copy; 2026 Andrew Xu. Built with HTML, CSS, and Bootstrap.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('themeToggle');
+      var icon = document.getElementById('themeIcon');
+      var label = document.getElementById('themeLabel');
+      function sync() {
+        var dark = root.classList.contains('dark');
+        label.textContent = dark ? 'Light' : 'Dark';
+        icon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      }
+      sync();
+      btn.addEventListener('click', function () {
+        root.classList.toggle('dark');
+        try { localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light'); } catch (e) {}
+        sync();
+      });
+    })();
+  </script>
+</body>
+</html>

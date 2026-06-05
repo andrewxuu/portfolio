@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Andrew Xu">
+  <meta name="description" content="Case study: QA &amp; gameplay design on A Journey to Babylon.">
+  <title>Andrew Xu | A Journey to Babylon</title>
+
+  <script>
+    (function () {
+      try { if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark'); } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">ANDREW XU</a>
+      <div class="links">
+        <a href="index.html">HOME</a>
+        <a class="active" aria-current="page" href="projects.html">PROJECTS</a>
+        <a href="aboutme.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="margin-left:10px;">
+          <span class="fa-solid fa-moon" id="themeIcon" aria-hidden="true"></span>
+          <span id="themeLabel">Dark</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <article class="article">
+    <a class="back-link" href="projects.html">
+      <span class="fa-solid fa-arrow-left" aria-hidden="true"></span> Back to Projects
+    </a>
+
+    <header class="article-head">
+      <span class="page-kicker">Game Project</span>
+      <h1 class="article-title">A Journey to <span>Babylon</span></h1>
+
+      <div class="article-meta">
+        <div class="meta-item">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">Gameplay Designer &amp; Artist</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Engine</span>
+          <span class="meta-value">Unity</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Duration</span>
+          <span class="meta-value">20 Weeks</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Date</span>
+          <span class="meta-value">Oct 2024 – Mar 2025</span>
+        </div>
+      </div>
+    </header>
+
+    <img class="article-hero" src="images/babylon-hero.jpg" alt="A Journey to Babylon title art: Rosalie kneeling in a moonlit forest holding a glowing pendant">
+
+    <div class="article-body">
+
+      <div class="callout">
+        <span class="callout-label">Summary</span>
+        <p>A Journey to Babylon is a 2D narrative RPG built in Unity over a 20-week capstone, combining exploration with turn-based combat. The work spanned art and enemy design, gameplay, and a structured QA pass of 20 dedicated test sessions targeting visual clarity, input latency, and the accuracy of in-game text across UI and narrative.</p>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin:0 0 8px;">
+        <a class="p3-btn" href="lore-babylon.html" style="margin:0;">Explore the World &amp; Lore &rarr;</a>
+        <a class="p3-btn" href="https://[your-username].itch.io/[your-game]" target="_blank" rel="noopener noreferrer" style="margin:0;">Play on itch.io &rarr;</a>
+      </div>
+
+      <h2>Overview</h2>
+      <p>
+        A Journey to Babylon follows Rosalie Nehrai, a young traveler crossing the ancient forest realm of Silva Aetherea toward the distant Kingdom of Babylon to fulfill a promise made to her late mother: to "find something more." Chapter 1, <em>Autumn's Rest</em>, opens as a mysterious purple rift tears across the night sky, and what begins as a quiet stop in a sleepy village turns into a fight for its survival when monsters of unknown origin lay siege after dark.
+      </p>
+      <p>
+        The world is grounded in original lore: Silva Aetherea, the "Ethereal Forest" once revered as sacred; the prosperous Kingdom of Babylon, built on the discovery of Magic Stones that channel the elements at a cost to the wielder's mind; and Autumn's Rest, a waypoint village along the Silk Road. Built by a multi-disciplinary capstone team across writing, art, design, UI/UX, and programming, the Chapter 1 vertical slice brought together exploration, dialogue with NPCs, and a turn-based combat scene.
+      </p>
+
+      <h2>Role &amp; Scope</h2>
+      <p>
+        The work on this project sat across three areas:
+      </p>
+      <ul>
+        <li><strong>Art &amp; enemy design.</strong> Produced enemy sprites and combat-scene assets, contributing to the visual language of the encounters players face in Autumn's Rest.</li>
+        <li><strong>Gameplay.</strong> Helped shape the turn-based combat scene, including the encounter layout (player on the right, enemies on the left) and the flow between exploration and combat states.</li>
+        <li><strong>Text &amp; QA.</strong> Reviewed and revised in-game text for clarity, tone consistency, and readability across both UI and narrative, and ran the QA pass on the build.</li>
+      </ul>
+
+      <h2>QA Approach</h2>
+      <p>
+        With a narrative game, two kinds of quality matter at once: the build has to function, and the writing has to read cleanly in-context. The QA pass targeted both:
+      </p>
+      <ul>
+        <li>Ran <strong>20 dedicated QA sessions</strong> across the Chapter 1 build, focused on visual clarity, input latency, and text accuracy.</li>
+        <li>Reviewed narrative and UI text in-engine, catching tone inconsistencies and readability issues that only surface once dialogue is actually on screen, not in the script.</li>
+        <li>Logged issues with steps to reproduce, severity, and expected-vs-actual outcomes, then re-tested after each patch to catch regressions.</li>
+        <li>Flagged build-flow issues for the team, such as scene-transition triggers and player spawn placement in the combat handoff.</li>
+      </ul>
+
+      <figure>
+        <img src="images/game.png" alt="A Journey to Babylon combat scene or UI screenshot">
+        <figcaption>Add a combat-scene screenshot or UI capture here.</figcaption>
+      </figure>
+
+      <h2>Results</h2>
+      <div class="result-strip">
+        <div class="result"><div class="r-num">20</div><div class="r-lbl">QA Sessions</div></div>
+        <div class="result"><div class="r-num">20wk</div><div class="r-lbl">Dev Cycle</div></div>
+        <div class="result"><div class="r-num">Ch.1</div><div class="r-lbl">Vertical Slice</div></div>
+      </div>
+      <p>
+        The QA pass kept the Chapter 1 slice stable and readable through to its build deadline, surfacing and resolving issues with visual clarity, input response, and on-screen text before they reached the demo. The text review tightened tone and readability across the UI and the game's branching dialogue, so the writing landed as intended in-engine.
+      </p>
+
+      <h2>Lessons Learned</h2>
+      <p>
+        Narrative QA is its own discipline. Bugs in a turn-based system are relatively easy to reproduce and file, but text issues — a line that reads fine in a script but feels off in a dialogue box, or UI copy that's unclear under pressure — only show up when you test the writing in-context, on the actual screen. Treating the text as something to QA rather than just proofread caught problems that a code-only pass would have missed.
+      </p>
+    </div>
+
+    <a class="back-link" href="projects.html" style="margin:40px 0 0;">
+      <span class="fa-solid fa-arrow-left" aria-hidden="true"></span> Back to Projects
+    </a>
+  </article>
+
+  <footer class="site-foot">
+    <h2>Connect</h2>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/andrew-l-xuu/" target="_blank" aria-label="LinkedIn">
+        <span class="fa-brands fa-linkedin-in" aria-hidden="true"></span>
+      </a>
+      <a href="mailto:andrew.l.xuu@gmail.com" aria-label="Email Andrew Xu">
+        <span class="fa-solid fa-envelope" aria-hidden="true"></span>
+      </a>
+      <a href="https://github.com/andrewxuu" target="_blank" aria-label="GitHub">
+        <span class="fa-brands fa-github" aria-hidden="true"></span>
+      </a>
+      <a href="https://discord.com/users/377968184894160897" target="_blank" aria-label="Discord">
+        <span class="fa-brands fa-discord" aria-hidden="true"></span>
+      </a>
+    </div>
+    <p class="copyright">&copy; 2026 Andrew Xu. Built with HTML, CSS, and Bootstrap.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('themeToggle');
+      var icon = document.getElementById('themeIcon');
+      var label = document.getElementById('themeLabel');
+      function sync() {
+        var dark = root.classList.contains('dark');
+        label.textContent = dark ? 'Light' : 'Dark';
+        icon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      }
+      sync();
+      btn.addEventListener('click', function () {
+        root.classList.toggle('dark');
+        try { localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light'); } catch (e) {}
+        sync();
+      });
+    })();
+  </script>
+</body>
+</html>

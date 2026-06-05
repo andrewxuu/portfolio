@@ -5,7 +5,8 @@
   CASE STUDY / REPORT TEMPLATE
   ----------------------------------------------------------
   To make a new report: copy this file, rename it (e.g.
-  qa-report-chefer.html), and edit the marked sections below.
+  case-study-myproject.html), and replace all placeholder
+  text marked with [BRACKETS] or lorem ipsum below.
   Then link to it from a card in projects.html.
 -->
 
@@ -13,10 +14,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Andrew Xu">
-  <!-- EDIT: page description for this specific report -->
-  <meta name="description" content="Case study: QA & gameplay design on A Journey to Babylon.">
-  <!-- EDIT: browser tab title -->
-  <title>Andrew Xu | A Journey to Babylon</title>
+  <meta name="description" content="[Short page description for search engines, e.g. Case study: QA on Project Name.]">
+  <title>Andrew Xu | [Project Name]</title>
 
   <script>
     (function () {
@@ -59,54 +58,56 @@
     </a>
 
     <!-- ============ ARTICLE HEADER ============ -->
+    <!-- Kicker options: "Game Project", "QA Report", "Postmortem", "Web App", "Case Study" -->
     <header class="article-head">
-      <!-- EDIT: kicker, e.g. "Game Project", "QA Report", "Postmortem" -->
-      <span class="page-kicker">Game Project</span>
-      <!-- EDIT: title. Use <span> to color a word blue -->
-      <h1 class="article-title">A Journey to <span>Babylon</span></h1>
+      <span class="page-kicker">[Kicker]</span>
+      <!-- Use <span> inside h1 to color one word blue, e.g.: Project <span>Name</span> -->
+      <h1 class="article-title">[Project <span>Name</span>]</h1>
 
-      <!-- EDIT: meta items, add or remove as needed -->
+      <!-- Add, remove, or relabel meta items as needed -->
       <div class="article-meta">
         <div class="meta-item">
           <span class="meta-label">Role</span>
-          <span class="meta-value">Gameplay Designer &amp; Artist</span>
+          <span class="meta-value">[Your Role]</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Engine</span>
-          <span class="meta-value">Unity</span>
+          <span class="meta-value">[Engine / Stack]</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Duration</span>
-          <span class="meta-value">20 Weeks</span>
+          <span class="meta-value">[X Weeks]</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Date</span>
-          <span class="meta-value">Oct 2024 – Mar 2025</span>
+          <span class="meta-value">[Mon YYYY – Mon YYYY]</span>
         </div>
       </div>
     </header>
 
-    <!-- hero image -->
-    <img class="article-hero" src="images/babylon-hero.jpg" alt="A Journey to Babylon title art: Rosalie kneeling in a moonlit forest holding a glowing pendant">
+    <!-- Hero image. Replace src and alt. -->
+    <img class="article-hero" src="images/[hero-image].jpg" alt="[Descriptive alt text for the hero image]">
 
     <!-- ============ ARTICLE BODY ============ -->
     <div class="article-body">
 
+      <!-- Summary callout — one tight paragraph hitting the what/how/scope -->
       <div class="callout">
         <span class="callout-label">Summary</span>
-        <p>A Journey to Babylon is a 2D narrative RPG built in Unity over a 20-week capstone, combining exploration with turn-based combat. The work spanned art and enemy design, gameplay, and a structured QA pass of 20 dedicated test sessions targeting visual clarity, input latency, and the accuracy of in-game text across UI and narrative.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       </div>
 
-      <p style="margin:0 0 8px;">
-        <a class="p3-btn" href="lore-babylon.html" style="margin:0;">Explore the World &amp; Lore &rarr;</a>
-      </p>
+      <!-- Optional: link to a companion page (lore, spec doc, etc.) -->
+      <!-- <p style="margin:0 0 8px;">
+        <a class="p3-btn" href="[companion-page].html" style="margin:0;">[Link Label] &rarr;</a>
+      </p> -->
 
       <h2>Overview</h2>
       <p>
-        A Journey to Babylon follows Rosalie Nehrai, a young traveler crossing the ancient forest realm of Silva Aetherea toward the distant Kingdom of Babylon to fulfill a promise made to her late mother: to "find something more." Chapter 1, <em>Autumn's Rest</em>, opens as a mysterious purple rift tears across the night sky, and what begins as a quiet stop in a sleepy village turns into a fight for its survival when monsters of unknown origin lay siege after dark.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
       <p>
-        The world is grounded in original lore: Silva Aetherea, the "Ethereal Forest" once revered as sacred; the prosperous Kingdom of Babylon, built on the discovery of Magic Stones that channel the elements at a cost to the wielder's mind; and Autumn's Rest, a waypoint village along the Silk Road. Built by a multi-disciplinary capstone team across writing, art, design, UI/UX, and programming, the Chapter 1 vertical slice brought together exploration, dialogue with NPCs, and a turn-based combat scene.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis.
       </p>
 
       <h2>Role &amp; Scope</h2>
@@ -114,40 +115,42 @@
         The work on this project sat across three areas:
       </p>
       <ul>
-        <li><strong>Art &amp; enemy design.</strong> Produced enemy sprites and combat-scene assets, contributing to the visual language of the encounters players face in Autumn's Rest.</li>
-        <li><strong>Gameplay.</strong> Helped shape the turn-based combat scene, including the encounter layout (player on the right, enemies on the left) and the flow between exploration and combat states.</li>
-        <li><strong>Text &amp; QA.</strong> Reviewed and revised in-game text for clarity, tone consistency, and readability across both UI and narrative, and ran the QA pass on the build.</li>
+        <li><strong>[Area one.]</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        <li><strong>[Area two.]</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+        <li><strong>[Area three.]</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
       </ul>
 
-      <h2>QA Approach</h2>
+      <h2>[Process Section Heading]</h2>
       <p>
-        With a narrative game, two kinds of quality matter at once: the build has to function, and the writing has to read cleanly in-context. The QA pass targeted both:
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit:
       </p>
       <ul>
-        <li>Ran <strong>20 dedicated QA sessions</strong> across the Chapter 1 build, focused on visual clarity, input latency, and text accuracy.</li>
-        <li>Reviewed narrative and UI text in-engine, catching tone inconsistencies and readability issues that only surface once dialogue is actually on screen, not in the script.</li>
-        <li>Logged issues with steps to reproduce, severity, and expected-vs-actual outcomes, then re-tested after each patch to catch regressions.</li>
-        <li>Flagged build-flow issues for the team, such as scene-transition triggers and player spawn placement in the combat handoff.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</li>
+        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</li>
+        <li>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</li>
       </ul>
 
+      <!-- Figure — replace src, alt, and figcaption -->
       <figure>
-        <img src="images/game.png" alt="A Journey to Babylon combat scene or UI screenshot">
-        <figcaption>Add a combat-scene screenshot or UI capture here.</figcaption>
+        <img src="images/[screenshot].png" alt="[Description of what this screenshot shows]">
+        <figcaption>[Caption describing the screenshot or asset shown above.]</figcaption>
       </figure>
 
       <h2>Results</h2>
+      <!-- Add, remove, or change stat blocks as needed -->
       <div class="result-strip">
-        <div class="result"><div class="r-num">20</div><div class="r-lbl">QA Sessions</div></div>
-        <div class="result"><div class="r-num">20wk</div><div class="r-lbl">Dev Cycle</div></div>
-        <div class="result"><div class="r-num">Ch.1</div><div class="r-lbl">Vertical Slice</div></div>
+        <div class="result"><div class="r-num">[#]</div><div class="r-lbl">[Stat Label]</div></div>
+        <div class="result"><div class="r-num">[#]</div><div class="r-lbl">[Stat Label]</div></div>
+        <div class="result"><div class="r-num">[#]</div><div class="r-lbl">[Stat Label]</div></div>
       </div>
       <p>
-        The QA pass kept the Chapter 1 slice stable and readable through to its build deadline, surfacing and resolving issues with visual clarity, input response, and on-screen text before they reached the demo. The text review tightened tone and readability across the UI and the game's branching dialogue, so the writing landed as intended in-engine.
+        Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
       </p>
 
       <h2>Lessons Learned</h2>
       <p>
-        Narrative QA is its own discipline. Bugs in a turn-based system are relatively easy to reproduce and file, but text issues, like a line that reads fine in a script but feels off in a dialogue box, or UI copy that's unclear under pressure, only show up when you test the writing in-context, on the actual screen. Treating the text as something to QA rather than just proofread caught problems that a code-only pass would have missed.
+        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
       </p>
     </div>
 
