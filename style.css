@@ -133,7 +133,7 @@ a { color: var(--blue); }
   position: relative;
   z-index: 10;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 80px auto;
   align-items: center;
   gap: 48px;
 }
